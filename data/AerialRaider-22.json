@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "Implementing validation checks for amount0Owed and amount1Owed in the uniswapV3MintCallback function, as well as for amount0Delta and amount1Delta in the uniswapV3SwapCallback function",
+  "issueId": 22,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/22"
+}
