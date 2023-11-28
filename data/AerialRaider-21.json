@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "Suggesting to enforce rigorous validation checks for functions _createPositionInAMM and _createLegInAMM ",
+  "issueId": 21,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/21"
+}
