@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "Proposing enhancements for the registerTokenTransfer function in the SemiFungiblePositionManager contract with Validity Checks and Ensuring the transfer of the full balance",
+  "issueId": 20,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/20"
+}
