@@ -7,3 +7,5 @@
 Use ``observe()`` instead
 
 [L-02] - rebasing tokens would work against the users in events of negative rebases, as stated by the uniswap docs. This detail was probably missed, but due to not being mentioned in the README - Low
+
+[L-03] - the ERC1155Minimal does not implement a ``balanceOf()``, only a ``balanceOfBatch()`` function, possibly tampering with potential itegrations
