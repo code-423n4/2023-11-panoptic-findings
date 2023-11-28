@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "Enhance the security of the LiquidityChunk library to include custom error handling or revert messages for failed operations.",
+  "issueId": 19,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/19"
+}
