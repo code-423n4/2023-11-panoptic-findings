@@ -1,4 +1,4 @@
-QA. LeftRight.toLeftSlot() fails to detect that int128(left) might overflow. As a result, the function might be return wrong values sometimes and lead to loss fundings during trading.
+QA1. LeftRight.toLeftSlot() fails to detect that int128(left) might overflow. As a result, the function might be return wrong values sometimes and lead to loss fundings during trading.
 
 [https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L118-L122](https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L118-L122)
 
@@ -12,3 +12,18 @@ function toLeftSlot(int256 self, uint128 left) internal pure returns (int256) {
         }
     }
 ``
+
+QA2. Another LeftRight.toLeftSlot() fails to check that that there might be an overflow. As a result, the function might return wrong value and some users might lost funds during trading. 
+
+[https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L108-L112](https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L108-L112)
+
+```diff
+  function toLeftSlot(uint256 self, uint128 left) internal pure returns (uint256) {
+        unchecked {
+-            return self + (uint256(left) << 128);
++            uint256 z = self + (uint256(left) << 128);
++            if(uint128(z >> 128) < left) revert Errors.UnderOverFlow();
+
+        }
+    }
+```
