@@ -154,30 +154,7 @@ File: contracts/SemiFungiblePositionManager.sol
 
 ## G-5: Use assembly to emit events
 
-We can use assembly to emit events efficiently by utilizing `scratch space` and the `free memory pointer`. This will allow us to potentially avoid memory expansion costs. Note: In order to do this optimization safely, we will need to cache and restore the free memory pointer. For example, for a generic `emit` event for `eventSentAmountExample`:
-
-```solidity
-// uint256 id, uint256 value, uint256 amount
-emit eventSentAmountExample(id, value, amount);
-```
-
-We can use the following assembly emit events:
-
-```solidity
-            assembly {
-                let memptr := mload(0x40)
-                mstore(0x00, calldataload(0x44))
-                mstore(0x20, calldataload(0xa4))
-                mstore(0x40, amount)
-                log1(
-                    0x00,
-                    0x60,
-                    // keccak256("eventSentAmountExample(uint256,uint256,uint256)")
-                    0xa622cf392588fbf2cd020ff96b2f4ebd9c76d7a4bc7f3e6b2f18012312e76bc3
-                )
-                mstore(0x40, memptr)
-            }
-```
+We can use assembly to emit events efficiently by utilizing `scratch space` and the `free memory pointer`. This will allow us to potentially avoid memory expansion costs. Note: In order to do this optimization safely, we will need to cache and restore the free memory pointer.
 
 ```solidity
 File: contracts/SemiFungiblePositionManager.sol
