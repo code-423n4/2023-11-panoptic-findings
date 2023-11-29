@@ -33,18 +33,6 @@ This tool allows for a precise analysis of gas consumption before and after the 
 Once the return variable has been assigned (or has its default value), there is no need to explicitly return it at the end of the function, since it's returned automatically.
 
 ```solidity
-File: contracts/SemiFungiblePositionManager.sol
-715		return (totalCollectedFromAMM, totalMoved, newTick);
-```
-
-```diff
--		return (totalCollectedFromAMM, totalMoved, newTick);
-```
-
-- Deployment Cost: 4323042 (-7209 gas, -0.1665%)
-- Deployment Size: 21783 (-36 gas, -0.0165%)
-
-```solidity
 File: contracts/libraries/Math.sol
 211     return result;
 
@@ -96,8 +84,8 @@ File: contracts/SemiFungiblePositionManager.sol
 +		uint256 premium1X64_base;
 ```
 
-- Deployment Cost: 4323042 (-7209 gas, -0.1665%)
-- Deployment Size: 21783 (-36 gas, -0.0165%)
+- Deployment Cost: 4323042 (-7209 gas, -0.17%)
+- Deployment Size: 21783 (-36 gas, -0.02%)
 
 ## G-3: Use assembly to check for `address(0)`
 
@@ -122,8 +110,8 @@ File: contracts/SemiFungiblePositionManager.sol
 +       }
 ```
 
-- Deployment Cost: 4325242 (-5009 gas, -0.1157%)
-- Deployment Size: 21794 (-25 gas, -0.0115%)
+- Deployment Cost: 4325242 (-5009 gas, -0.12%)
+- Deployment Size: 21794 (-25 gas, -0.01%)
 
 ```diff
 -		if (univ3pool == IUniswapV3Pool(address(0))) revert Errors.UniswapPoolNotInitialized();
@@ -139,8 +127,8 @@ File: contracts/SemiFungiblePositionManager.sol
 +       }
 ```
 
-- Deployment Cost: 4329451 (-800 gas, -0.0185%)
-- Deployment Size: 21815 (-4 gas, -0.0018%)
+- Deployment Cost: 4329451 (-800 gas, -0.02%)
+- Deployment Size: 21815 (-4 gas, -0.01%)
 
 ## G-4: Use assembly to emit events
 
@@ -232,5 +220,5 @@ File: contracts/SemiFungiblePositionManager.sol
 +		}
 ```
 
-- Deployment Cost: 4328851 (-1400 gas, -0.0323%)
-- Deployment Size: 21812 (-7 gas, -0.0032%)
+- Deployment Cost: 4328851 (-1400 gas, -0.03%)
+- Deployment Size: 21812 (-7 gas, -0.01%)
