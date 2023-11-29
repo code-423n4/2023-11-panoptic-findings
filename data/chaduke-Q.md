@@ -42,3 +42,19 @@ Mitigation:
         int128 leftSum = int128(self >> 128) + left; // overflow will be caught out of unchecked 
     }
 ```
+
+QA4. LeftRight.toRightSlot() fails to check that that there might be an overflow. As a result, the function might return wrong value and some users might lost funds during trading. 
+
+[https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L75-L80](https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L75-L80)
+
+Mitigation: 
+```diff
+ function toRightSlot(int256 self, int128 right) internal pure returns (int256) {
+        int128  rightSum = int128(self >> 128) + right; // overflow will be detected here out of unchecked
+
+        // bit mask needed in case rightHalfBitPattern < 0 due to 2's complement
+        unchecked {
+            return self + (int256(right) & RIGHT_HALF_BIT_MASK);
+        }
+    }
+```
