@@ -1,4 +1,4 @@
-Identified several medium-risk findings:
+Identified several medium-risk findings :
 
 Precision Handling in PanopticMath Library: 
 Recommended ensuring proper handling of precision in convert0to1 and convert1to0 functions by implementing rounding strategies such as rounding up (ceiling), rounding down (floor), or rounding to the nearest integer. This is to mitigate risks associated with precision loss or rounding errors.
@@ -25,6 +25,8 @@ Custom Error Handling in LiquidityChunk Library:
 Advised enhancing the LiquidityChunk library to include custom error handling or specific revert messages for failed operations, enhancing clarity and debuggability.
 
 Each of these findings is categorized as medium risk, indicating that while they may not pose immediate severe threats, addressing them could significantly improve the security, reliability, and performance of the system.
+
+
 
 ### Time spent:
 16 hours
