@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "enhance the initializeAMMPool function with Non-Zero Address Check and Pool Existence Check",
+  "issueId": 24,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/24"
+}
