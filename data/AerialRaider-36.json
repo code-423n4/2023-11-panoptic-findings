@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "Ensure that the dynamic handling of precision in the convert0to1 and convert1to0 within the PanopticMath library by rounding up (ceil) or rounding down (floor) or rounding to the nearest integer (round)",
+  "issueId": 36,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/36"
+}
