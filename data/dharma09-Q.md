@@ -23,3 +23,6 @@ File: contracts/tokens/ERC1155Minimal.sol
 **if the array length of `ids.length` and `owenrs.length` is not equal, it can lead to an error. See dev comment on line [174](**https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/tokens/ERC1155Minimal.sol#L174**)**
 
 **Recommend checking the input array length.**
+```
+ require(owners.length == ids.length, "LENGTH_MISMATCH");
+```
