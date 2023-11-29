@@ -27,3 +27,18 @@ QA2. Another LeftRight.toLeftSlot() fails to check that that there might be an o
         }
     }
 ```
+
+QA3. A third  LeftRight.toLeftSlot() fails to check that that there might be an overflow. As a result, the function might return wrong value and some users might lost funds during trading. 
+
+[https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L128C14-L132](https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L128C14-L132)
+
+Mitigation:
+
+```diff
+ function toLeftSlot(int256 self, int128 left) internal pure returns (int256) {
+        unchecked {
+            return self + (int256(left) << 128);
+        }
+        int128 leftSum = int128(self >> 128) + left; // overflow will be caught out of unchecked 
+    }
+```
