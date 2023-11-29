@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "Validations in the createChunk function, to include checks for _tickLower, _tickUpper, Validate that the amount of liquidity is non-negative",
+  "issueId": 34,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/34"
+}
