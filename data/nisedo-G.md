@@ -121,15 +121,15 @@ File: contracts/SemiFungiblePositionManager.sol
 ```diff
 -		if (address(univ3pool) == address(0)) revert Errors.UniswapPoolNotInitialized();
 
-+		bytes4 errorSelector = Errors.UniswapPoolNotInitialized.selector;
-+		assembly {
-+			let poolAddress := univ3pool
++       bytes4 errorSelector = Errors.UniswapPoolNotInitialized.selector;
++       assembly {
++           let poolAddress := univ3pool
 
-+           		if iszero(poolAddress) {
-+               	mstore(0, errorSelector)
-+               	revert(0, 4)
-+           		}
-+       	}
++           if iszero(poolAddress) {
++               mstore(0, errorSelector)
++               revert(0, 4)
++           }
++       }
 ```
 
 - Deployment Cost: 4325242 (-5009 gas, -0.1157%)
@@ -138,15 +138,15 @@ File: contracts/SemiFungiblePositionManager.sol
 ```diff
 -		if (univ3pool == IUniswapV3Pool(address(0))) revert Errors.UniswapPoolNotInitialized();
 
-+		bytes4 errorSelector = Errors.UniswapPoolNotInitialized.selector;
-+		assembly {
-+			let poolAddress := univ3pool
++       bytes4 errorSelector = Errors.UniswapPoolNotInitialized.selector;
++       assembly {
++           let poolAddress := univ3pool
 
-+           		if iszero(poolAddress) {
-+               	mstore(0, errorSelector)
-+               	revert(0, 4)
-+           		}
-+       	}
++           if iszero(poolAddress) {
++               mstore(0, errorSelector)
++               revert(0, 4)
++           }
++       }
 ```
 
 - Deployment Cost: 4329451 (-800 gas, -0.0185%)
@@ -154,7 +154,30 @@ File: contracts/SemiFungiblePositionManager.sol
 
 ## G-5: Use assembly to emit events
 
-We can use assembly to emit events efficiently by utilizing `scratch space` and the `free memory pointer`. This will allow us to potentially avoid memory expansion costs. Note: In order to do this optimization safely, we will need to cache and restore the free memory pointer.
+We can use assembly to emit events efficiently by utilizing `scratch space` and the `free memory pointer`. This will allow us to potentially avoid memory expansion costs. Note: In order to do this optimization safely, we will need to cache and restore the free memory pointer. For example, for a generic `emit` event for `eventSentAmountExample`:
+
+```solidity
+// uint256 id, uint256 value, uint256 amount
+emit eventSentAmountExample(id, value, amount);
+```
+
+We can use the following assembly emit events:
+
+```solidity
+            assembly {
+                let memptr := mload(0x40)
+                mstore(0x00, calldataload(0x44))
+                mstore(0x20, calldataload(0xa4))
+                mstore(0x40, amount)
+                log1(
+                    0x00,
+                    0x60,
+                    // keccak256("eventSentAmountExample(uint256,uint256,uint256)")
+                    0xa622cf392588fbf2cd020ff96b2f4ebd9c76d7a4bc7f3e6b2f18012312e76bc3
+                )
+                mstore(0x40, memptr)
+            }
+```
 
 ```solidity
 File: contracts/SemiFungiblePositionManager.sol
@@ -171,3 +194,76 @@ File: contracts/tokens/ERC1155Minimal.sol
 
 161             emit TransferBatch(msg.sender, from, to, ids, amounts);
 ```
+
+## G-6: Nesting if-statements is cheaper than using `&&`
+
+Nesting if-statements avoids the stack operations of setting up and using an extra `jumpdest`.
+
+```solidity
+File: contracts/SemiFungiblePositionManager.sol
+774              if ((itm0 != 0) && (itm1 != 0)) {
+775                  (uint160 sqrtPriceX96, , , , , , ) = _univ3pool.slot0();
+776  
+777                  // implement a single "netting" swap. Thank you @danrobinson for this puzzle/idea
+778                  // note: negative ITM amounts denote a surplus of tokens (burning liquidity), while positive amounts denote a shortage of tokens (minting liquidity)
+779                  // compute the approximate delta of token0 that should be resolved in the swap at the current tick
+780                  // we do this by flipping the signs on the token1 ITM amount converting+deducting it against the token0 ITM amount
+781                  // couple examples (price = 2 1/0):
+782                  //  - 100 surplus 0, 100 surplus 1 (itm0 = -100, itm1 = -100)
+783                  //    normal swap 0: 100 0 => 200 1
+784                  //    normal swap 1: 100 1 => 50 0
+785                  //    final swap amounts: 50 0 => 100 1
+786                  //    netting swap: net0 = -100 - (-100/2) = -50, ZF1 = true, 50 0 => 100 1
+787                  // - 100 surplus 0, 100 shortage 1 (itm0 = -100, itm1 = 100)
+788                  //    normal swap 0: 100 0 => 200 1
+789                  //    normal swap 1: 50 0 => 100 1
+790                  //    final swap amounts: 150 0 => 300 1
+791                  //    netting swap: net0 = -100 - (100/2) = -150, ZF1 = true, 150 0 => 300 1
+792                  // - 100 shortage 0, 100 surplus 1 (itm0 = 100, itm1 = -100)
+793                  //    normal swap 0: 200 1 => 100 0
+794                  //    normal swap 1: 100 1 => 50 0
+795                  //    final swap amounts: 300 1 => 150 0
+796                  //    netting swap: net0 = 100 - (-100/2) = 150, ZF1 = false, 300 1 => 150 0
+797                  // - 100 shortage 0, 100 shortage 1 (itm0 = 100, itm1 = 100)
+798                  //    normal swap 0: 200 1 => 100 0
+799                  //    normal swap 1: 50 0 => 100 1
+800                  //    final swap amounts: 100 1 => 50 0
+801                  //    netting swap: net0 = 100 - (100/2) = 50, ZF1 = false, 100 1 => 50 0
+802                  // - = Net surplus of token0
+803                  // + = Net shortage of token0
+804                  int256 net0 = itm0 - PanopticMath.convert1to0(itm1, sqrtPriceX96);
+805  
+806                  zeroForOne = net0 < 0;
+807  
+808                  //compute the swap amount, set as positive (exact input)
+809                  swapAmount = -net0;
+810              } else if (itm0 != 0) {
+811                  zeroForOne = itm0 < 0;
+812                  swapAmount = -itm0;
+813              } else {
+814                  zeroForOne = itm1 > 0;
+815                  swapAmount = -itm1;
+816:             }
+```
+
+```diff
++		if (itm0 != 0) {
++			if (itm1 != 0) {
++				(uint160 sqrtPriceX96, , , , , , ) = _univ3pool.slot0();
++				int256 net0 = itm0 - PanopticMath.convert1to0(itm1, sqrtPriceX96);
++				zeroForOne = net0 < 0;
++				swapAmount = -net0;
++			} else {
++				zeroForOne = itm0 < 0;
++				swapAmount = -itm0;
++			}
++		} else {
++			if (itm1 != 0) {
++			zeroForOne = itm1 > 0;
++			swapAmount = -itm1;
++     			}
++		}
+```
+
+- Deployment Cost: 4328851 (-1400 gas, -0.0323%)
+- Deployment Size: 21812 (-7 gas, -0.0032%)
