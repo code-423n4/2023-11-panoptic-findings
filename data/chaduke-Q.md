@@ -75,3 +75,21 @@ Mitigation:
         }
     }
 ```
+
+QA6. A second LeftRight.toRightSlot() fails to check that that there might be an overflow. As a result, the function might return wrong value and some users might lose funds during trading. 
+
+[https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L54-L59](https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L54-L59)
+
+Mitigation: 
+
+```diff
+ function toRightSlot(uint256 self, int128 right) internal pure returns (uint256) {
+        if (right < 0) revert Errors.LeftRightInputError();
+        unchecked {
+-            return self + uint256(int256(right));
++            uint256 z = self + uint256(int256(right));
++            if(z >> 128 < uint128(right)) revert Errors.UnderOverFlow();
+        }
+
+    }
+```
