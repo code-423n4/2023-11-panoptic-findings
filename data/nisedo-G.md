@@ -3,6 +3,31 @@
 All gas optimization estimations presented in this report have been determined using the `forge test --gas-report` feature and compared against the `Deployment Cost` and `Deployment Size` of the audit repo commit [f75d07c](https://github.com/code-423n4/2023-11-panoptic).
 This tool allows for a precise analysis of gas consumption before and after the proposed changes, ensuring the accuracy of the savings mentioned.
 
+| Contract Name                             | Deployment Cost (Before) | Deployment Cost (After) | Change in Deployment Cost (%)       | Deployment Size (Before) | Deployment Size (After) | Change in Deployment Size (%)     |
+|-------------------------------------------|--------------------------|-------------------------|-------------------------------------|--------------------------|-------------------------|-----------------------------------|
+| FeesCalc                                  | 294759                   | 294759                  | 0 (0%)                              | 1530                     | 1530                    | 0 (0%)                            |
+| MockERC20                                 | 759913                   | 759913                  | 0 (0%)                              | 4914                     | 4914                    | 0 (0%)                            |
+| MissingReturnToken                        | 345823                   | 345823                  | 0 (0%)                              | 1559                     | 1559                    | 0 (0%)                            |
+| ReturnsFalseToken                         | 221500                   | 221500                  | 0 (0%)                              | 938                      | 938                     | 0 (0%)                            |
+| ReturnsGarbageToken                       | 524591                   | 524591                  | 0 (0%)                              | 2452                     | 2452                    | 0 (0%)                            |
+| ReturnsTooLittleToken                     | 224706                   | 224706                  | 0 (0%)                              | 954                      | 954                     | 0 (0%)                            |
+| ReturnsTooMuchToken                       | 344617                   | 344617                  | 0 (0%)                              | 1553                     | 1553                    | 0 (0%)                            |
+| ReturnsTwoToken                           | 218300                   | 218300                  | 0 (0%)                              | 922                      | 922                     | 0 (0%)                            |
+| RevertingToken                            | 215294                   | 215294                  | 0 (0%)                              | 907                      | 907                     | 0 (0%)                            |
+| SemiFungiblePositionManagerHarness        | 4330251                  | 4312225                 | -18026 (-0.42%)                     | 21819                    | 21729                   | -90 (-0.41%)                      |
+| UniswapV3FactoryMock                      | 104553                   | 104553                  | 0 (0%)                              | 554                      | 554                     | 0 (0%)                            |
+| FeesCalcHarness                           | 346186                   | 346186                  | 0 (0%)                              | 1761                     | 1761                    | 0 (0%)                            |
+| MathHarness                               | 619051                   | 611445                  | -7606 (-1.23%)                      | 3124                     | 3086                    | -38 (-1.22%)                      |
+| PanopticMathHarness                       | 1448328                  | 1442721                 | -5607 (-0.39%)                      | 7074                     | 7046                    | -28 (-0.40%)                      |
+| MiniPositionManager                       | 715947                   | 715947                  | 0 (0%)                              | 3608                     | 3608                    | 0 (0%)                            |
+| ERC1155MinimalHarness                     | 916555                   | 916555                  | 0 (0%)                              | 4610                     | 4610                    | 0 (0%)                            |
+| LeftRightHarness                          | 366005                   | 366005                  | 0 (0%)                              | 1860                     | 1860                    | 0 (0%)                            |
+| LiquidityChunkHarness                     | 184426                   | 184426                  | 0 (0%)                              | 953                      | 953                     | 0 (0%)                            |
+| TokenIdHarness                            | 834470                   | 834470                  | 0 (0%)                              | 4200                     | 4200                    | 0 (0%)                            |
+| **Total**                                 |                          |                         | **-31239**                          |                          |                         | **-156**                          |
+
+
+
 ## G-1: Remove the  `return`  statement when the function defines named return variables to save gas
 
 Once the return variable has been assigned (or has its default value), there is no need to explicitly return it at the end of the function, since it's returned automatically.
@@ -18,6 +43,39 @@ File: contracts/SemiFungiblePositionManager.sol
 
 - Deployment Cost: 4323042 (-7209 gas, -0.1665%)
 - Deployment Size: 21783 (-36 gas, -0.0165%)
+
+```solidity
+File: contracts/libraries/Math.sol
+211     return result;
+
+278     return result;
+
+307     return result;
+
+369     return result;
+
+431     return result;
+
+493     return result;
+```
+
+```diff
+File: contracts/libraries/Math.sol
+-       return result;
+
+-       return result;
+
+-       return result;
+
+-       return result;
+
+-       return result;
+
+-       return result;
+```
+
+- Deployment Cost: 611445 (-7606 gas, -1.23%)
+- Deployment Size: 3086 (-38 gas, -1.22%)
 
 ## G-2: Usage of  `uints`/`ints`  smaller than 32 bytes (256 bits) incurs overhead
 
@@ -41,75 +99,7 @@ File: contracts/SemiFungiblePositionManager.sol
 - Deployment Cost: 4323042 (-7209 gas, -0.1665%)
 - Deployment Size: 21783 (-36 gas, -0.0165%)
 
-## G-3: Remove unused named return variables to save gas
-Consider changing the variable to be an unnamed one, since the variable is never assigned, nor is it returned by name.
-
-```solidity
-File: contracts/SemiFungiblePositionManager.sol
-1459		) external view returns (IUniswapV3Pool UniswapV3Pool) {
-```
-
-```diff
--		) external view returns (IUniswapV3Pool UniswapV3Pool) {
-+		) external view returns (IUniswapV3Pool) {
-```
-
-- Deployment Cost: 4323042 (-7209 gas, -0.1665%)
-- Deployment Size: 21783 (-36 gas, -0.0165%)
-
-```solidity
-File: contracts/libraries/Math.sol
-103		) internal pure returns (uint256 amount0) {
-```
-
-```diff
--		) internal pure returns (uint256 amount0) {
-+		) internal pure returns (uint256) {
-```
-
-- Deployment Cost: 4323042 (-7209 gas, -0.1665%)
-- Deployment Size: 21783 (-36 gas, -0.0165%)
-
-```solidity
-File: contracts/libraries/Math.sol
-103		) internal pure returns (uint256 amount1) {
-```
-
-```diff
--		) internal pure returns (uint256 amount1) {
-+		) internal pure returns (uint256) {
-```
-
-- Deployment Cost: 4323042 (-7209 gas, -0.1665%)
-- Deployment Size: 21783 (-36 gas, -0.0165%)
-
-```solidity
-File: contracts/libraries/Math.sol
-138		) internal pure returns (uint128 liquidity) {
-```
-
-```diff
--		) internal pure returns (uint128 liquidity) {
-+		) internal pure returns (uint128) {
-```
-
-- Deployment Cost: 4323042 (-7209 gas, -0.1665%)
-- Deployment Size: 21783 (-36 gas, -0.0165%)
-
-```solidity
-File: contracts/libraries/Math.sol
-157		) internal pure returns (uint128 liquidity) {
-```
-
-```diff
--		) internal pure returns (uint128 liquidity) {
-+		) internal pure returns (uint128) {
-```
-
-- Deployment Cost: 4323042 (-7209 gas, -0.1665%)
-- Deployment Size: 21783 (-36 gas, -0.0165%)
-
-## G-4: Use assembly to check for `address(0)`
+## G-3: Use assembly to check for `address(0)`
 
 ```solidity
 File: contracts/SemiFungiblePositionManager.sol
@@ -152,7 +142,7 @@ File: contracts/SemiFungiblePositionManager.sol
 - Deployment Cost: 4329451 (-800 gas, -0.0185%)
 - Deployment Size: 21815 (-4 gas, -0.0018%)
 
-## G-5: Use assembly to emit events
+## G-4: Use assembly to emit events
 
 We can use assembly to emit events efficiently by utilizing `scratch space` and the `free memory pointer`. This will allow us to potentially avoid memory expansion costs. Note: In order to do this optimization safely, we will need to cache and restore the free memory pointer.
 
@@ -172,7 +162,7 @@ File: contracts/tokens/ERC1155Minimal.sol
 161             emit TransferBatch(msg.sender, from, to, ids, amounts);
 ```
 
-## G-6: Nesting if-statements is cheaper than using `&&`
+## G-5: Nesting if-statements is cheaper than using `&&`
 
 Nesting if-statements avoids the stack operations of setting up and using an extra `jumpdest`.
 
@@ -220,7 +210,7 @@ File: contracts/SemiFungiblePositionManager.sol
 813              } else {
 814                  zeroForOne = itm1 > 0;
 815                  swapAmount = -itm1;
-816:             }
+816              }
 ```
 
 ```diff
