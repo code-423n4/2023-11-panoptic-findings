@@ -107,3 +107,20 @@ Mitigation:
 +       if(uint128(self >> 128)  < right) revert Errors.UnderOverFlow();
     }
 ```
+
+QA8. A fourth LeftRight.toRightSlot() fails to check that that there might be an overflow. As a result, the function might return wrong value and some users might lose funds during trading. 
+
+[https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L75-L80](https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/types/LeftRight.sol#L75-L80)
+
+Mitigation: 
+
+```diff
+ function toRightSlot(int256 self, int128 right) internal pure returns (int256) {
+        // bit mask needed in case rightHalfBitPattern < 0 due to 2's complement
+        unchecked {
+            return self + (int256(right) & RIGHT_HALF_BIT_MASK);
+        }
+
+        int128 rightsum = int128(self >> 128) + right; // overflow/underflow will be deteced here. 
+    }
+```
