@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "To ensure that users of the Semi-Fungible Position Manager (SFPM) can only remove liquidity that they have personally added, and not liquidity owned by other users",
+  "issueId": 39,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/39"
+}
