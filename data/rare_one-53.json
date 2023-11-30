@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAicmFyZV9vbmUiLAogICJyaXNrIjogIlEiLAogICJ0aXRsZSI6ICJRQSBSZXBvcnQiLAogICJpc3N1ZUlkIjogNTMsCiAgImlzc3VlVXJsIjogImh0dHBzOi8vZ2l0aHViLmNvbS9jb2RlLTQyM240LzIwMjMtMTEtcGFub3B0aWMtZmluZGluZ3MvaXNzdWVzLzUzIgp9
+{
+  "contest": 309,
+  "handle": "rare_one",
+  "risk": "Q",
+  "title": "QA Report",
+  "issueId": 53,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/53"
+}
