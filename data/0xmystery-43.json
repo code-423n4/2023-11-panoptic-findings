@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xmystery",
+  "risk": "2",
+  "title": "Potential Underflow in `_createPositionInAMM` Function During Burn Operations",
+  "issueId": 43,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/43"
+}
