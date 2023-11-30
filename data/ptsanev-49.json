@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAicHRzYW5ldiIsCiAgInJpc2siOiAiMyIsCiAgInRpdGxlIjogIlNGUE0jX2NvbGxlY3RBbmRXcml0ZVBvc2l0aW9uRGF0YSgpIC0gdXNlcnMgYnVybmluZyB0aGVpciBwb3NpdGlvbnMgd291bGQgbm90IHJlY2VpdmUgdGhlaXIgdG9rZW5zLCBvbmx5IHRoZSBhY2N1bXVsYXRlZCBmZWVzIiwKICAiaXNzdWVJZCI6IDQ5LAogICJpc3N1ZVVybCI6ICJodHRwczovL2dpdGh1Yi5jb20vY29kZS00MjNuNC8yMDIzLTExLXBhbm9wdGljLWZpbmRpbmdzL2lzc3Vlcy80OSIKfQ==
+{
+  "contest": 309,
+  "handle": "ptsanev",
+  "risk": "3",
+  "title": "SFPM#_collectAndWritePositionData() - users burning their positions would not receive their tokens, only the accumulated fees",
+  "issueId": 49,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/49"
+}

@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAiMHhicmV0dDg1NzEiLAogICJyaXNrIjogIjIiLAogICJ0aXRsZSI6ICJVbmNoZWNrZWQgYGFtb3VudFRvQ29sbGVjdGAgaW4gYF9jb2xsZWN0QW5kV3JpdGVQb3NpdGlvbkRhdGFgIGNvdWxkIGFsbG93IHVzZXJzIHRvIGNvbGxlY3QgbW9yZSBmZWVzIHRoYW4gZWFybmVkLCBpbXBhY3RpbmcgYWNjdXJhY3kgYW5kIGludGVncml0eS4iLAogICJpc3N1ZUlkIjogNjUsCiAgImlzc3VlVXJsIjogImh0dHBzOi8vZ2l0aHViLmNvbS9jb2RlLTQyM240LzIwMjMtMTEtcGFub3B0aWMtZmluZGluZ3MvaXNzdWVzLzY1Igp9
+{
+  "contest": 309,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "Unchecked `amountToCollect` in `_collectAndWritePositionData` could allow users to collect more fees than earned, impacting accuracy and integrity.",
+  "issueId": 65,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/65"
+}

@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAic2VhdG9uMHgxIiwKICAicmlzayI6ICIzIiwKICAidGl0bGUiOiAiV2hlbiB0aGUgdmFsdWUgb2YgcG9vbElkIGlzIDExNTI5MjE1MDQ2MDY4NDY5NzYwLCB0aGlzIHBvb2wgd2lsbCBub3QgYmUgYWJsZSB0byBiZSBjcmVhdGVkLiIsCiAgImlzc3VlSWQiOiA1NSwKICAiaXNzdWVVcmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2NvZGUtNDIzbjQvMjAyMy0xMS1wYW5vcHRpYy1maW5kaW5ncy9pc3N1ZXMvNTUiCn0=
+{
+  "contest": 309,
+  "handle": "seaton0x1",
+  "risk": "3",
+  "title": "When the value of poolId is 11529215046068469760, this pool will not be able to be created.",
+  "issueId": 55,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/55"
+}

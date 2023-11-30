@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAid2lzZG9tbl8iLAogICJyaXNrIjogIjMiLAogICJ0aXRsZSI6ICJUaGUgZmlyc3QgdXNlciBjYW4gYnJlYWsgdGhlIG1pbnRpbmcgb2YgdG9rZW5pemVkIHBvc2l0aW9ucyIsCiAgImlzc3VlSWQiOiA1MiwKICAiaXNzdWVVcmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2NvZGUtNDIzbjQvMjAyMy0xMS1wYW5vcHRpYy1maW5kaW5ncy9pc3N1ZXMvNTIiCn0=
+{
+  "contest": 309,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "The first user can break the minting of tokenized positions",
+  "issueId": 52,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/52"
+}

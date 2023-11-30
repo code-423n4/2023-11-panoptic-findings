@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAiMHhicmV0dDg1NzEiLAogICJyaXNrIjogIjIiLAogICJ0aXRsZSI6ICIgQ2FsbGluZyBgX21pbnQoKWAgYW5kIGBfYnVybigpYCBpbiB0aGUgc2FtZSBibG9jayBicmVha3MgZmVlIGNhbGN1bGF0aW9ucywgb3ZlcnBheWluZyBmZWVzIGluY29uc2lzdGVudGx5LiIsCiAgImlzc3VlSWQiOiA2NiwKICAiaXNzdWVVcmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2NvZGUtNDIzbjQvMjAyMy0xMS1wYW5vcHRpYy1maW5kaW5ncy9pc3N1ZXMvNjYiCn0=
+{
+  "contest": 309,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": " Calling `_mint()` and `_burn()` in the same block breaks fee calculations, overpaying fees inconsistently.",
+  "issueId": 66,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/66"
+}

@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAiZGVibyIsCiAgInJpc2siOiAiUSIsCiAgInRpdGxlIjogIlFBIFJlcG9ydCIsCiAgImlzc3VlSWQiOiA1MCwKICAiaXNzdWVVcmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2NvZGUtNDIzbjQvMjAyMy0xMS1wYW5vcHRpYy1maW5kaW5ncy9pc3N1ZXMvNTAiCn0=
+{
+  "contest": 309,
+  "handle": "debo",
+  "risk": "Q",
+  "title": "QA Report",
+  "issueId": 50,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/50"
+}

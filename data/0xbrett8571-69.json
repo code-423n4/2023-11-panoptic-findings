@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAiMHhicmV0dDg1NzEiLAogICJyaXNrIjogIjIiLAogICJ0aXRsZSI6ICJNaW50aW5nIG9jY3VycyBiZWZvcmUgc2xpcHBhZ2UgY2hlY2ssIGVuYWJsaW5nIG1hcmtldCBtYW5pcHVsYXRpb24sIHZpb2xhdGluZyBkZWZpbmVkIHNsaXBwYWdlIGxpbWl0cywgYW5kIGxvc3Nlcy4iLAogICJpc3N1ZUlkIjogNjksCiAgImlzc3VlVXJsIjogImh0dHBzOi8vZ2l0aHViLmNvbS9jb2RlLTQyM240LzIwMjMtMTEtcGFub3B0aWMtZmluZGluZ3MvaXNzdWVzLzY5Igp9
+{
+  "contest": 309,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "Minting occurs before slippage check, enabling market manipulation, violating defined slippage limits, and losses.",
+  "issueId": 69,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/69"
+}
