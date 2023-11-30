@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAicmFzcGJlcnJ5dGVhIiwKICAicmlzayI6ICJRIiwKICAidGl0bGUiOiAiUUEgUmVwb3J0IiwKICAiaXNzdWVJZCI6IDU4LAogICJpc3N1ZVVybCI6ICJodHRwczovL2dpdGh1Yi5jb20vY29kZS00MjNuNC8yMDIzLTExLXBhbm9wdGljLWZpbmRpbmdzL2lzc3Vlcy81OCIKfQ==
+{
+  "contest": 309,
+  "handle": "raspberrytea",
+  "risk": "Q",
+  "title": "QA Report",
+  "issueId": 58,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/58"
+}
