@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAiMHhicmV0dDg1NzEiLAogICJyaXNrIjogIjIiLAogICJ0aXRsZSI6ICJTdHJpY3QgRVJDMTE1NSB0cmFuc2ZlciByZXN0cmljdGlvbnMgbGltaXQgY29tcG9zYWJpbGl0eSwgY29uZnVzZSB1c2VycywgaGluZGVyIERlRmkgaW50ZWdyYXRpb24sIGFuZCBjcmVhdGUgdW5leHBlY3RlZCByZXZlcnRzLiIsCiAgImlzc3VlSWQiOiA2MywKICAiaXNzdWVVcmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2NvZGUtNDIzbjQvMjAyMy0xMS1wYW5vcHRpYy1maW5kaW5ncy9pc3N1ZXMvNjMiCn0=
+{
+  "contest": 309,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "Strict ERC1155 transfer restrictions limit composability, confuse users, hinder DeFi integration, and create unexpected reverts.",
+  "issueId": 63,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/63"
+}
