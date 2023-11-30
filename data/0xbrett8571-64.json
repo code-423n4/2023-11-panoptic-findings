@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAiMHhicmV0dDg1NzEiLAogICJyaXNrIjogIjIiLAogICJ0aXRsZSI6ICJUaGUgYWJzZW5jZSBvZiBiYWxhbmNlIGNoZWNrcyBpbiBgYnVyblRva2VuaXplZFBvc2l0aW9uYCByaXNrcyB1c2VycyBidXJuaW5nIG1vcmUgbGlxdWlkaXR5IHRoYW4gbWludGVkLCBjb21wcm9taXNpbmcgaW50ZWdyaXR5LiIsCiAgImlzc3VlSWQiOiA2NCwKICAiaXNzdWVVcmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2NvZGUtNDIzbjQvMjAyMy0xMS1wYW5vcHRpYy1maW5kaW5ncy9pc3N1ZXMvNjQiCn0=
+{
+  "contest": 309,
+  "handle": "0xbrett8571",
+  "risk": "2",
+  "title": "The absence of balance checks in `burnTokenizedPosition` risks users burning more liquidity than minted, compromising integrity.",
+  "issueId": 64,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/64"
+}
