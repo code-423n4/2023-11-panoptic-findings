@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAid2lzZG9tbl8iLAogICJyaXNrIjogIjMiLAogICJ0aXRsZSI6ICJUaGUgc3VidHJhdGN0aW9uIG9mIGNodW5rTGlxdWlkaXR5IGZyb20gcmVtb3ZlZExpcXVpZGl0eSBpbiBmdW5jdGlvbiBfY3JlYXRlTGVnSW5BTU0gd2lsbCB1bmRlcmZsb3cgYW5kIHJldmVydCB3aGVuIHRoZSBjaHVua0xpcXVpZGl0eSBpcyBsZXNzIHRoYW4gdGhlIHJlbW92ZWRMaXF1aWRpdHksIG1ha2luZyBpdCBpbXBvc3NpYmxlIHRvIGNsb3NlIGxvbmcgcG9zaXRpb25zLiIsCiAgImlzc3VlSWQiOiA1MSwKICAiaXNzdWVVcmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2NvZGUtNDIzbjQvMjAyMy0xMS1wYW5vcHRpYy1maW5kaW5ncy9pc3N1ZXMvNTEiCn0=
+{
+  "contest": 309,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "The subtratction of chunkLiquidity from removedLiquidity in function _createLegInAMM will underflow and revert when the chunkLiquidity is less than the removedLiquidity, making it impossible to close long positions.",
+  "issueId": 51,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/51"
+}
