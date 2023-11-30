@@ -1,32 +1,35 @@
-Identified several medium-risk findings :
+Panoptic audit findings, reveal several areas of risk across various aspects of the system. Here's a summary of the key findings:
 
-Precision Handling in PanopticMath Library: 
-Recommended ensuring proper handling of precision in convert0to1 and convert1to0 functions by implementing rounding strategies such as rounding up (ceiling), rounding down (floor), or rounding to the nearest integer. This is to mitigate risks associated with precision loss or rounding errors.
+Uniswap Fee Collection: Identified a risk in ensuring that the fees collected from Uniswap do not exceed the amount of fees earned by the liquidity owned by the user. This ensures fair distribution of fees in proportion to the liquidity provided by users.
 
-Input Validation in getLiquidityChunk: 
-Identified the need for verifying the legitimacy of parameters like tokenId, legIndex, and positionSize before they are used in the getLiquidityChunk function, to prevent potential issues due to invalid inputs.
+Semi-Fungible Position Manager (SFPM) Liquidity Removal: 
+To guarantee that users can only remove liquidity they have personally added, preventing the removal of liquidity owned by other users, which enhances the integrity of user interactions with the SFPM.
 
-Validations in createChunk Function: 
-Suggested adding checks for _tickLower and _tickUpper to ensure they fall within valid ranges and that _tickLower is less than _tickUpper. Also recommended verifying that the amount of liquidity is non-negative to maintain data integrity.
+Precision Handling in PanopticMath: 
+Highlighted the importance of precise and dynamic handling in convert0to1 and convert1to0 functions by adopting appropriate rounding strategies (ceil, floor, round), which is crucial for maintaining accuracy in mathematical operations.
 
-Enhancements in initializeAMMPool Function: 
-Advised implementing checks for non-zero addresses and pool existence to strengthen the security and robustness of the initializeAMMPool function.
+TokenId, LegIndex, and PositionSize Validation: 
+Emphasized verifying the legitimacy of tokenId, legIndex, and positionSize before utilizing them in the getLiquidityChunk function to prevent invalid or manipulated inputs from affecting the system.
 
-Validation Checks in Uniswap Callback Functions: 
-Proposed rigorous validation checks for amount0Owed and amount1Owed in uniswapV3MintCallback, as well as for amount0Delta and amount1Delta in uniswapV3SwapCallback, to ensure correctness and consistency in callback operations.
+CreateChunk Function Validations: 
+Suggested additional validations in the createChunk function, including checks for _tickLower, _tickUpper, and ensuring non-negative liquidity amounts, to enhance the robustness and reliability of the function.
 
-Rigorous Validation in _createPositionInAMM and _createLegInAMM: 
-Suggested enforcing strict validation checks in these functions to ensure the accuracy and security of position creation within the AMM.
+AMMPool Initialization Checks: 
+Recommended enhancements in the initializeAMMPool function with checks for non-zero addresses and the existence of pools, aiming to prevent the initialization of invalid or non-existent pools.
 
-Enhancements in registerTokenTransfer Function: 
-Recommended adding thorough validity checks and ensuring the complete transfer of balance in the registerTokenTransfer function within the SemiFungiblePositionManager contract, to prevent partial or invalid transfers.
+Callback Function Validations: 
+Proposed implementing validation checks for amount0Owed and amount1Owed in the uniswapV3MintCallback function, and for amount0Delta and amount1Delta in the uniswapV3SwapCallback function, ensuring the legitimacy and correctness of callback operations.
 
-Custom Error Handling in LiquidityChunk Library: 
-Advised enhancing the LiquidityChunk library to include custom error handling or specific revert messages for failed operations, enhancing clarity and debuggability.
+Position Creation Validations: 
+Suggested enforcing rigorous validation checks in the _createPositionInAMM and _createLegInAMM functions to ensure the integrity and security of position creation within the AMM.
 
-Each of these findings is categorized as medium risk, indicating that while they may not pose immediate severe threats, addressing them could significantly improve the security, reliability, and performance of the system.
+Token Transfer Validations in SFPM: 
+Proposed enhancements for the registerTokenTransfer function in the SemiFungiblePositionManager contract, emphasizing validity checks and ensuring full balance transfers to maintain consistency and security in token transfers.
 
+LiquidityChunk Library Security: 
+Recommended enhancing the security of the LiquidityChunk library by including custom error handling or revert messages for failed operations, improving the system's reliability and user feedback.
 
+These findings collectively aim to enhance the security, reliability, and fairness of the Panoptic system, addressing potential vulnerabilities and ensuring robust operations across various functionalities.
 
 ### Time spent:
-16 hours
+18 hours
