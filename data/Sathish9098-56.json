@@ -1,1 +1,8 @@
-ewogICJjb250ZXN0IjogMzA5LAogICJoYW5kbGUiOiAiU2F0aGlzaDkwOTgiLAogICJyaXNrIjogIkciLAogICJ0aXRsZSI6ICJHYXMgT3B0aW1pemF0aW9ucyIsCiAgImlzc3VlSWQiOiA1NiwKICAiaXNzdWVVcmwiOiAiaHR0cHM6Ly9naXRodWIuY29tL2NvZGUtNDIzbjQvMjAyMy0xMS1wYW5vcHRpYy1maW5kaW5ncy9pc3N1ZXMvNTYiCn0=
+{
+  "contest": 309,
+  "handle": "Sathish9098",
+  "risk": "G",
+  "title": "Gas Optimizations",
+  "issueId": 56,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/56"
+}
