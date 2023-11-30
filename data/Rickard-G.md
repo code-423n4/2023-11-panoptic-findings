@@ -31,13 +31,3 @@ Potential bugs introduction if contract deployed using another pragma than the o
 Manual review
 ## Recommendations
 Consider locking the pragma in all the contracts to the [0.8.23](https://soliditylang.org/blog/2023/11/08/solidity-0.8.23-release-announcement/) version. It is not recommended to use a floating pragma in production.
-## [G-02] Internal functions that are not called by the contract should be removed to save deployment gas
-Internal functions in Solidity are only intended to be invoked within the contract or by other internal functions. If an internal function is not called anywhere within the contract, it serves no purpose and contributes unnecessary overhead during deployment. Removing such functions can lead to substantial gas savings.
-````solidity
-
-````
-## Impact
-
-## Tools Used
-
-## Recommendations
