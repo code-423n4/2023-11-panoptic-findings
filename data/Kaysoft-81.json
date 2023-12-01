@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Kaysoft",
+  "risk": "2",
+  "title": "SemiFungiblePositionManager.sol is not ERC1155 comliant as required by the docs.",
+  "issueId": 81,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/81"
+}
