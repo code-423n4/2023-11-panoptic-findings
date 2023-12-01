@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Im_th3AK",
+  "risk": "3",
+  "title": "Use of `delegatecall` inside a loop in a payable function can lead to reentrancy attacks and loss of funds.",
+  "issueId": 77,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/77"
+}
