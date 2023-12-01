@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "A user can remove more liquidity than his starting liquidity, allowing him to create insolvent positions.",
+  "issueId": 72,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/72"
+}
