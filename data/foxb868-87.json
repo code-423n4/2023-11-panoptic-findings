@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "Transfer 2^256-1 wei exploits truncation quirk, drains untouched liquidity, disrupts accounting, computational integrity.",
+  "issueId": 87,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/87"
+}
