@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xHelium",
+  "risk": "3",
+  "title": "Use of `slot0` to get sqrtPriceX96 can lead to price manipulation",
+  "issueId": 80,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/80"
+}
