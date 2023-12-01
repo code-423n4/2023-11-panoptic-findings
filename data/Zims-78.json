@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Zims",
+  "risk": "2",
+  "title": "Potential Denial of Service via Gas Griefing in Multicall Function",
+  "issueId": 78,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/78"
+}
