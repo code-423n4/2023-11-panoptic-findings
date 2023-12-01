@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "Compromised UniV3 FACTORY could allow unauthorized token minting, risking infinite supply, liquidity drain, and fee loss.",
+  "issueId": 84,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/84"
+}
