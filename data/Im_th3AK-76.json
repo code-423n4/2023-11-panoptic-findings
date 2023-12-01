@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Im_th3AK",
+  "risk": "3",
+  "title": "Unprotected initializer method allows changing the pool context of the semi-fungible position manager contract.",
+  "issueId": 76,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/76"
+}
