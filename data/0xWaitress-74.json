@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xWaitress",
+  "risk": "2",
+  "title": "recipient of an option position can be ddos with dust since afterTokenTransfer requires the recipients to have no prior balance",
+  "issueId": 74,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/74"
+}
