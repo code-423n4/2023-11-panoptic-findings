@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "Hard boundary at 2^127 tokens in `_createPositionInAMM`, but DOS risk if check bypassed.",
+  "issueId": 88,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/88"
+}
