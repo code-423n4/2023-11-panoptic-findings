@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Zims",
+  "risk": "2",
+  "title": "Potential Reentrancy Vulnerability in `Multicall` Function Due to Unprotected `delegatecall`",
+  "issueId": 79,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/79"
+}
