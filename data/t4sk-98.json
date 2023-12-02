@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "t4sk",
+  "risk": "2",
+  "title": "ERC1155.safeBatchTransferFrom - missing check on length of arrays",
+  "issueId": 98,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/98"
+}
