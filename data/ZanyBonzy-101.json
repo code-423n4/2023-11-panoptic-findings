@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "ZanyBonzy",
+  "risk": "2",
+  "title": " Lack of slippage parameter while swapping can cause loss of funds",
+  "issueId": 101,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/101"
+}
