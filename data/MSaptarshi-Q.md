@@ -14,3 +14,12 @@ Check if already approved
 https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/SemiFungiblePositionManager.sol#L331
 ## Recommended 
 Check if already lock removed
+
+....
+....
+....
+
+
+# [NC-1] Enormous natspec comments in a line
+## Recommended 
+Solidity suggests natspec comments to limit upto 120 letters in a line
