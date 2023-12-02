@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "pipidu83",
+  "risk": "2",
+  "title": "Insufficient input validation in ```safeBatchTransferFrom``` and ```balanceOfBatch``` in the ```ERC1155``` minimal contract.",
+  "issueId": 100,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/100"
+}
