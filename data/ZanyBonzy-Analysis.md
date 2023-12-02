@@ -7,6 +7,7 @@
 
 - The Panoptic protocol is a decentralized options trading platform on the Ethereum blockchain. It allows users to create, trade, and market-make perpetual options without the need for intermediaries or oracles. This is achieved by leveraging the decentralized architecture of Automated Market Makers and the permissionless liquidity pools of UniswapV3.
 - Unlike conventional options, Panoptic options employ UniswapV3 Liquidity Provider (LP) positions as the core mechanism for trading long and short options. These options are perpetual, meaning they have no expiration date, and can be freely created by anyone in any options market for any asset without any permissions required. Furthermore, Panoptic options are not affected by "vega," which ensures that the premiums of open positions remain unaffected by volatility fluctuations.
+- Sellers sell options by borrowing liquidity for a fixed commission fee and relocating it to a Uni v3 pool while buyers buy options by moving liquidity out of the Uni v3 pool back to the Panoptic smart contract, all for a fixed commission fee.
 
 ### **1.2 Architecture and CodeBase Overview**
 
@@ -71,11 +72,11 @@ In scope, the contracts are divided into five categories;
 
 - **Smart Contract vulnerabilities** - Smart contract vulnerabilities pose a significant threat to the security and integrity of decentralized protocols. These vulnerabilities can manifest as critical security flaws, enabling malicious actors to exploit the protocol and steal funds or manipulate the system. Logical inconsistencies in the code can also lead to unexpected behavior and unintended consequences, potentially causing financial losses or compromising the protocol's overall functionality.
   
-- **Non-standard ERC20 tokens risks** - The protocol supports a wide range of ERC20 tokens, excluding fee-on-transfer tokens, which offers users a greater choice of assets for trading and position management. However, this versatility also introduces potential risks associated with non-standard ERC20 tokens. These non-standard tokens deviate from the expected behavior of the ERC20 standard, potentially leading to unexpected behaviours or vulnerabilities that could be exploited by malicious actors.
+- **Non-standard ERC20 tokens risks** - The protocol supports a wide range of ERC20 tokens, which offers users a greater choice of assets for trading and position management. However, this versatility also introduces potential risks associated with non-standard ERC20 tokens. These non-standard tokens deviate from the expected behavior of the ERC20 standard, potentially leading to unexpected behaviours or vulnerabilities that could be exploited by malicious actors. Important to note that although the audit doesn't consider the use of fee-on-transfer tokens, the documentation does not point this out. Potential users may be unaware of this and its broader consequences (UniswapV3 has issues with fee-on-transfer token suuport), and the protocol doesn't perform the needed balance checks. 
   
-- **Centralization Risks** - No significant centralization risks were identified in the contracts in scope as the protocol appears to be permissionless.
+- **Multichain Compatibility** - Due to the inherent variations in blockchain implementations and their respective properties. Transactions that execute flawlessly on one chain may encounter errors or produce unintended consequences on other chains. This heterogeneity introduces risks for users interacting with the protocol on these susceptible chains. The panoptic protocol is planned to be deployed on all chains that support UniswapV3. The issue here is that tokens sometimes have different addresses on different chains, the same uniV3pool address might have different token orders, etc. That is the case for example on Arbitrum, where the pair is WETH/USDC while on Polygon it is USDC/WETH. These implementations should be watched out for before deployment.
 
-- **Multichain Compatibility** - Due to the inherent variations in blockchain implementations and their respective properties. Transactions that execute flawlessly on one chain may encounter errors or produce unintended consequences on other chains. This heterogeneity introduces risks for users interacting with the protocol on these susceptible chains.
+- **Centralization Risks** - No significant centralization risks were identified in the contracts in scope as the protocol appears to be permissionless.
 
 ## **3. Audit approach**
 We approached the audit in 3 general steps after which we generated our report.
@@ -84,13 +85,16 @@ We approached the audit in 3 general steps after which we generated our report.
 
 - **Manual code review** - Here, we manually reviewed the codebase, ran provided tests, tested out various attack vectors. We looked for ways to DOS the system, ways a user can remove other users liquidity, pay more fees than thy're entiltled to and so on. We tested out the functions' logic to make sure they work as intended, as well as making sure the contracts comply with the needed EIPs.
 
-- **Codebase comparisons** - After the manual review, we used solodit to check for any similar protocol types so as to compare their implementations and tried to find any general vulnerabilities. This was a bit difficult, as the protocol seems to be one of a kind.
+- **Codebase comparisons** - After the manual review, we used solodit to check for any similar protocol types so as to compare their implementations and tried to find any general vulnerabilities. 
 
 ### 4. Conclusions
 
 - Options are one of the most traded instruments in finance ant the Panoptic protocol aims to redefine options trading by introducing a groundbreaking approach that leverages the power of decentralized finance. Unlike traditional options contracts that involve third parties, Panoptic enables the creation of option-like payoffs by dynamically redistributing liquidity among participants within the ecosystem. This mechanism eliminates the need for intermediaries and opens up the possibility of trading options on any token pair that has a UniswapV3 pool.
 - Overall, the codebase stands out for its well-structured organization and adherence to high-quality standards. The development team has meticulously crafted a permissionless and gas-efficient alternative to UniswapV3's `NonFungiblePositionManager`. Nevertheless, there remains potential for further improvement. We recommend cleaning up the codebase and mititgating any identified vulnerabilities before deployment. This proactive approach will ensure the protocol's continued robustness and security.
+  
+Time spent:
+30 hours
 
 
 ### Time spent:
-030 hours
+30 hours
