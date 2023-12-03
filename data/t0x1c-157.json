@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "t0x1c",
+  "risk": "3",
+  "title": "SemiFungiblePositionManager does not fully comply with ERC1155 standard",
+  "issueId": 157,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/157"
+}
