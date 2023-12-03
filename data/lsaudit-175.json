@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "Incorrect calculations in `convert0to1()` and `convert1to0()`",
+  "issueId": 175,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/175"
+}
