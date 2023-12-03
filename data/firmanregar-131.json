@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "firmanregar",
+  "risk": "3",
+  "title": "Use of delegatecall in a payable function inside a loop",
+  "issueId": 131,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/131"
+}
