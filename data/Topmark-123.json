@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Topmark",
+  "risk": "3",
+  "title": "Wrong Implementation in Validate function will allow Self Strike that is below MIN_V3POOL_TICK or above MAX_V3POOL_TICK",
+  "issueId": 123,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/123"
+}
