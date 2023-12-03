@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xDemon",
+  "risk": "2",
+  "title": "Some tokens as collateral assets may reverted if the transfer or approval exceeds the maximum allowance",
+  "issueId": 114,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/114"
+}
