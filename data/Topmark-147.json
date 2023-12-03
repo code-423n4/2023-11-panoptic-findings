@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Topmark",
+  "risk": "3",
+  "title": "Possible Wrong RemovedLiquidity Value due to Underflow Error",
+  "issueId": 147,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/147"
+}
