@@ -1,0 +1,2 @@
+## Lack of Access Control in Callbacklib.sol
+The contract doesn't seem to have any access control mechanisms in place. If the contract is used in a larger system, it's crucial to ensure that only authorized users can call certain functions. This can be achieved using the OpenZeppelin's Ownable contract or similar patterns.
