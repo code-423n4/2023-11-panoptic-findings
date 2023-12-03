@@ -41,7 +41,7 @@ SemiFungiblePositionManager.sol does not follow upgradeability standard like:
 1. using initialize function instead of naming it initializeAMMPools
 2. using the openzeppelin's initializable contract and the initialize modifier
 
-This contract does not follow the standard and will make it difficult to run analytic tools on it even when you want to updgrade to a new contract. 
+This contract does not follow the standard and will make it difficult to run analytic tools on it even when you want to updgrade to a new contract. Following standards makes so many other reviews easier and quicker.
 Upgradeability standards that need to be followed are here: https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable
 
 Standards help analytic tools to quickly check some issues like 
