@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Stormreckson",
+  "risk": "2",
+  "title": "Array length for the Ids and amounts aren't validated in `balanceOfBatch` and `safeBatchTransferFrom`",
+  "issueId": 143,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/143"
+}
