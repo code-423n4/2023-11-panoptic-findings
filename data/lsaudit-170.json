@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "ERC1155Minimal does not revert when `_to` is address(0) - thus it's not compliant with EIP-1155",
+  "issueId": 170,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/170"
+}
