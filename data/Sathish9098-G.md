@@ -162,6 +162,6 @@ FILE: 2023-11-panoptic/contracts/SemiFungiblePositionManager.sol
 https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/SemiFungiblePositionManager.sol#L860-L912
 
 
-
+Renetrancy guard optimizations
 
 
