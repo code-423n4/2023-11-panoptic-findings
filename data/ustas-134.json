@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "ustas",
+  "risk": "2",
+  "title": "Loss of precision in `Math.getLiquidityForAmount1()` function allows minting dust amounts of `SFPM` tokens unlinked from liquidity",
+  "issueId": 134,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/134"
+}
