@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "The low-level call to extract an account's liquidity in unchecked.",
+  "issueId": 177,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/177"
+}
