@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Manax",
+  "risk": "2",
+  "title": "Lack of Input Validation in safeTransferFrom() function",
+  "issueId": 164,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/164"
+}
