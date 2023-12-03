@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "There are reentrant possibilities in function uniswapV3MintCallback and function uniswapV3SwapCallback.",
+  "issueId": 113,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/113"
+}
