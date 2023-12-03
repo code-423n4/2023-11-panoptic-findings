@@ -1,35 +1,37 @@
-Panoptic audit findings, reveal several areas of risk across various aspects of the system. Here's a summary of the key findings:
+Panoptic project audit focused on enhancing security, ensuring proper functionality, and validating crucial processes. Here's a summary of the findings:
 
-Uniswap Fee Collection: Identified a risk in ensuring that the fees collected from Uniswap do not exceed the amount of fees earned by the liquidity owned by the user. This ensures fair distribution of fees in proportion to the liquidity provided by users.
+Fees from Uniswap Transactions: 
+Ensure that fees collected from Uniswap do not exceed the fees earned by the user's owned liquidity. This check is crucial for fair fee distribution and maintaining user trust. Risk Level: Medium.
 
-Semi-Fungible Position Manager (SFPM) Liquidity Removal: 
-To guarantee that users can only remove liquidity they have personally added, preventing the removal of liquidity owned by other users, which enhances the integrity of user interactions with the SFPM.
+Liquidity Removal in SFPM: 
+Confirm that users of the Semi-Fungible Position Manager (SFPM) can only remove liquidity they have added, preventing unauthorized removal of liquidity owned by others. Risk Level: Medium.
 
-Precision Handling in PanopticMath: 
-Highlighted the importance of precise and dynamic handling in convert0to1 and convert1to0 functions by adopting appropriate rounding strategies (ceil, floor, round), which is crucial for maintaining accuracy in mathematical operations.
+TokenId, LegIndex, and PositionSize Verification: 
+Ensure the legitimacy of tokenId, legIndex, and positionSize before they are passed to getLiquidityChunk, enhancing data integrity. Risk Level: Medium.
 
-TokenId, LegIndex, and PositionSize Validation: 
-Emphasized verifying the legitimacy of tokenId, legIndex, and positionSize before utilizing them in the getLiquidityChunk function to prevent invalid or manipulated inputs from affecting the system.
+Validations in createChunk Function: 
+Include checks for _tickLower, _tickUpper, and validate that the amount of liquidity is non-negative in the createChunk function. Risk Level: Medium.
 
-CreateChunk Function Validations: 
-Suggested additional validations in the createChunk function, including checks for _tickLower, _tickUpper, and ensuring non-negative liquidity amounts, to enhance the robustness and reliability of the function.
+Enhancing initializeAMMPool Function: 
+Implement Non-Zero Address Check and Pool Existence Check in the initializeAMMPool function for enhanced reliability. Risk Level: Medium.
 
-AMMPool Initialization Checks: 
-Recommended enhancements in the initializeAMMPool function with checks for non-zero addresses and the existence of pools, aiming to prevent the initialization of invalid or non-existent pools.
+Validation Checks in Callback Functions: 
+Implement validation checks for amount0Owed and amount1Owed in uniswapV3MintCallback, as well as for amount0Delta and amount1Delta in uniswapV3SwapCallback. Risk Level: Medium.
 
-Callback Function Validations: 
-Proposed implementing validation checks for amount0Owed and amount1Owed in the uniswapV3MintCallback function, and for amount0Delta and amount1Delta in the uniswapV3SwapCallback function, ensuring the legitimacy and correctness of callback operations.
+Validation for AMM Creation Functions: 
+Enforce rigorous validation checks for _createPositionInAMM and _createLegInAMM functions, ensuring proper functioning and security. Risk Level: Medium.
 
-Position Creation Validations: 
-Suggested enforcing rigorous validation checks in the _createPositionInAMM and _createLegInAMM functions to ensure the integrity and security of position creation within the AMM.
+Enhancements in registerTokenTransfer Function: 
+Propose improvements for the registerTokenTransfer function in the SemiFungiblePositionManager contract, including Validity Checks and ensuring the full balance transfer. Risk Level: Medium.
 
-Token Transfer Validations in SFPM: 
-Proposed enhancements for the registerTokenTransfer function in the SemiFungiblePositionManager contract, emphasizing validity checks and ensuring full balance transfers to maintain consistency and security in token transfers.
+Q/A findings:
+Security in LiquidityChunk Library: Enhance the security of the LiquidityChunk library by including custom error handling or revert messages for failed operations. Risk Level: Low.
 
-LiquidityChunk Library Security: 
-Recommended enhancing the security of the LiquidityChunk library by including custom error handling or revert messages for failed operations, improving the system's reliability and user feedback.
+Precision Handling in PanopticMath Library: Validation for dynamic handling of precision in the convert0to1 and convert1to0 functions, including appropriate rounding mechanisms (up, down, or to the nearest integer). Risk Level: Low.
 
-These findings collectively aim to enhance the security, reliability, and fairness of the Panoptic system, addressing potential vulnerabilities and ensuring robust operations across various functionalities.
+Each of these points addresses vital aspects of the Panoptic project, highlighting areas where security and functionality can be improved. These findings are crucial for maintaining a robust, secure, and user-friendly environment within the Panoptic ecosystem.
+
+
 
 ### Time spent:
 18 hours
