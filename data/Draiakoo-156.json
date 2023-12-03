@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Draiakoo",
+  "risk": "2",
+  "title": "Users are able to burn tokens without calling the `burn` function due to lack of zero address check when transfering",
+  "issueId": 156,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/156"
+}
