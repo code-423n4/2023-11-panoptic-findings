@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "`balanceOfBatch()` may return incorrect results which breakes the compability with EIP-1155",
+  "issueId": 172,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/172"
+}
