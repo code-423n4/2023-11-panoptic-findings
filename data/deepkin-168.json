@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "deepkin",
+  "risk": "2",
+  "title": "Risk of eth stuck because of payable \"multicall()\" function",
+  "issueId": 168,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/168"
+}
