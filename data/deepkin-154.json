@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "deepkin",
+  "risk": "2",
+  "title": "Bug in SafeTransferLib can make SemiFungiblePositionManager not compatible with some Uniswap Pools/Tokens",
+  "issueId": 154,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/154"
+}
