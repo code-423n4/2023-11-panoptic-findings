@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "lil_eth",
+  "risk": "2",
+  "title": "SemiFungiblePositionManager.sol is vulnerable to collision",
+  "issueId": 178,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/178"
+}
