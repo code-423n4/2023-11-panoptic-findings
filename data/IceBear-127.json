@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "IceBear",
+  "risk": "2",
+  "title": "lack of slippage control can cause uniswap swap to be susceptible to sandwich attacks",
+  "issueId": 127,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/127"
+}
