@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "lsaudit",
+  "risk": "2",
+  "title": "Protocols which integrate with `ERC1155Minimal.sol` are at risk of fund-loss due to unsafe math ",
+  "issueId": 174,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/174"
+}
