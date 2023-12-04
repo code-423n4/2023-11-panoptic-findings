@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "critical-or-high",
+  "risk": "2",
+  "title": "SemiFungiblePositionManager has a precision issue when operation on tokens with small amount of decimals",
+  "issueId": 287,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/287"
+}
