@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "THE `msg.sender` OF THE `burnTokenizedPosition` AND `mintTokenizedPosition` HAS NOT APPROVED THE `SemiFungiblePositionManager` CONTRACT THUS REVERTING THE CALLBACK FUNCTIONS `uniswapV3MintCallback` AND `uniswapV3SwapCallback` WHILE USING `uniswapv3pool` FOR REQUIRED TOKEN TRNASFERS",
+  "issueId": 302,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/302"
+}
