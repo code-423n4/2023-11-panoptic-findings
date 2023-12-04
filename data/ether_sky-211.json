@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "ether_sky",
+  "risk": "3",
+  "title": "If all the liquidity for a specific position is transferred from Uniswap, that liquidity will not generate fees.",
+  "issueId": 211,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/211"
+}
