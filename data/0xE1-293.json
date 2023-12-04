@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xE1",
+  "risk": "3",
+  "title": "Subtract two int256 is not safe and can result to Underflow",
+  "issueId": 293,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/293"
+}
