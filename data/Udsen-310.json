@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "THERE IS NO SLIPPAGE PROTECTION IN THE `SemiFungiblePositionManager.swapInAMM` WHILE SWAPPING, IN-THE-MONEY TOKEN AMOUNT USING THE `_univ3pool.swap()` FUNCTION",
+  "issueId": 310,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/310"
+}
