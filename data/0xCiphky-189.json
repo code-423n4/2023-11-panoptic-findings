@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xCiphky",
+  "risk": "2",
+  "title": "Overflow possibility in Liquidity Position Management",
+  "issueId": 189,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/189"
+}
