@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xDING99YA",
+  "risk": "2",
+  "title": "Panoptic doesn't support tickSpacing with odd number",
+  "issueId": 187,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/187"
+}
