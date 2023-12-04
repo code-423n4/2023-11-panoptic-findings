@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xDING99YA",
+  "risk": "2",
+  "title": "Users may lose their accumulated fee when transferring the ERC1155 token",
+  "issueId": 186,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/186"
+}
