@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "BARW",
+  "risk": "3",
+  "title": "`tokenId::flipToBurnToken` only flips short positons to long positons but not the other way arround",
+  "issueId": 203,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/203"
+}
