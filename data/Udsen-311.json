@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Udsen",
+  "risk": "3",
+  "title": "THE `PanopticMath.convert1to0` AND `PanopticMath.convert0to1` FUNCTIONS DOES NOT CORRECTLY SCALE FOR THE DECIMAL DIFFERENCES OF `token0` AND `token1` THUS RETURNING ERRORNEOUS TOKEN AMOUNT AFTER CONVERSION",
+  "issueId": 311,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/311"
+}
