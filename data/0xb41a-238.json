@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xb41a",
+  "risk": "3",
+  "title": "function multicall()::Delegatcall used within for loop, it produce huge loss of funds and accounting error ",
+  "issueId": 238,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/238"
+}
