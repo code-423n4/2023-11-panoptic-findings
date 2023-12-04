@@ -22,6 +22,13 @@ https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39
 ## Recommended 
 Check if already lock removed
 
+# [L-04] No check for address of uniswap or owner
+## Context
+https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/SemiFungiblePositionManager.sol#L1371
+## Recommended 
+Check the address of uniswap or owner are same or not , if same then revert 
+and also check for 0 address
+
 ....
 ....
 ....
