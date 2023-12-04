@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Banditx0x",
+  "risk": "3",
+  "title": "No deadline check results in outdated slippage parameters",
+  "issueId": 197,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/197"
+}
