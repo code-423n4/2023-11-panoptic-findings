@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "lil_eth",
+  "risk": "2",
+  "title": " Overflow Issue when collecting uniswapV3 tokens",
+  "issueId": 237,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/237"
+}
