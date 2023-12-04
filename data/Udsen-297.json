@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "THE `updatedLiquidity` VALUE OF THE `s_accountLiquidity[positionKey]` MAPPING CAN OVERFLOW AND LOSE THE LIQUIDITY PROVIDED TO THE AMM POOL BY THE `msg.sender` AND NOT ALLOWING TO CLOSE HIS `long positions` AS WELL",
+  "issueId": 297,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/297"
+}
