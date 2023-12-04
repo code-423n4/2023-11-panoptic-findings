@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "D1r3Wolf",
+  "risk": "2",
+  "title": "LeftRight miscalculations on uint256",
+  "issueId": 264,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/264"
+}
