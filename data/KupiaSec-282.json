@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "KupiaSec",
+  "risk": "3",
+  "title": "Invalid liquidity check logic allows invalid option to be transferred thus making other option not being burnt and stuck in the smart contract forever.",
+  "issueId": 282,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/282"
+}
