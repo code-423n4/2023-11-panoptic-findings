@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "ether_sky",
+  "risk": "2",
+  "title": "Incorrect calculations for owed premia may result in the protocol erroneously requesting more fees from its users.",
+  "issueId": 295,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/295"
+}
