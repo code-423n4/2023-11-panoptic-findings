@@ -467,3 +467,65 @@ https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39
 https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/libraries/Math.sol#L462
 
 https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/libraries/Math.sol#L524
+
+
+# G-11.Event : Use “indexed” keyword for uint, bool, and address #
+
+Using the indexed keyword for value types such as uint, bool, and address saves gas costs, as seen in the example below. However, this is only the case for value types, whereas indexing bytes and strings are more expensive than their unindexed version.
+Also indexed keyword has more merits.
+It can be useful to have a way to monitor the contract’s activity after it was deployed. One way to accomplish this is to look at all transactions of the contract, however that may be insufficient, as message calls between contracts are not recorded in the blockchain. Moreover, it shows only the input parameters, not the actual changes being made to the state. Also events could be used to trigger functions in the user interface.
+
+Reference : https://0xmacro.com/blog/solidity-gas-optimizations-cheat-sheet/#:~:text=)%3B%0A%7D-,9.%20Use%20indexed%20events%20as%20they%20are%20less%20costly%20compared%20to,emit%20Withdraw(amount%2C%20msg.sender)%3B%0A%7D,-10.%20Use%20struct
+
+Instances :
+```
+file : contracts
+/SemiFungiblePositionManager.sol
+
+89 :          uint128 positionSize
+
+100 :         uint128 positionSize
+```	
+https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/SemiFungiblePositionManager.sol#L89
+	
+https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/SemiFungiblePositionManager.sol#L100
+```
+file : /contracts/tokens
+/ERC1155Minimal.sol
+
+25 :         uint256 id,
+
+26 :         uint256 amount
+
+44 :     event ApprovalForAll(address indexed owner, address indexed operator, bool approved);
+```
+https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/tokens/ERC1155Minimal.sol#L25
+
+https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/tokens/ERC1155Minimal.sol#L26
+
+https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/tokens/ERC1155Minimal.sol#L44
+
+
+# G-12. Instead of address(0) write it out, it saves gas #
+
+Instances : 
+```
+file : contracts
+/SemiFungiblePositionManager.sol
+
+356 :         if (address(univ3pool) == address(0)) revert Errors.UniswapPoolNotInitialized();
+
+370 :         while (address(s_poolContext[poolId].pool) != address(0)) {
+```
+https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/SemiFungiblePositionManager.sol#L356
+
+https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/SemiFungiblePositionManager.sol#L370
+```
+file : contracts/tokens
+/ERC1155Minimal.sol
+
+224 :                 ERC1155Holder(to).onERC1155Received(msg.sender, address(0), id, amount, "") !=
+```
+https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/tokens/ERC1155Minimal.sol#L224
+
+
