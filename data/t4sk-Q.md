@@ -20,3 +20,13 @@ https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39
 # balanceOfBatch
 require(owners.length == ids.length)
 ```
+
+# SemiFungiblePositionManager - incorrect comment on int size
+
+# Incorrect comments on fee calculation
+Comments on fee and premia equations use `feeGrowthX128` but both inside this code and Uniswap v3, fee calculations are done with `feeGrowthInsideX128``so the comments should be fixed to use `feeGrowthInsideX128`.
+
+https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39bafcd6a56624/contracts/SemiFungiblePositionManager.sol#L195-L275
+
+https://github.com/Uniswap/v3-core/blob/d8b1c635c275d2a9450bd6a78f3fa2484fef73eb/contracts/libraries/Position.sol#L61-L76
+
