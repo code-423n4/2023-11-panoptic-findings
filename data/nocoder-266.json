@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "nocoder",
+  "risk": "2",
+  "title": "The swaps performed through Uniswap do not have a deadline paramater, so they can be in the mempool for a long time, opening users up to loss of funds",
+  "issueId": 266,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/266"
+}
