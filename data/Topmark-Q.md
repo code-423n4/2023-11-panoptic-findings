@@ -61,6 +61,34 @@ https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/SemiFungibleP
     }
 ```
 ###  Report 4:
+#### Absence of Callback Function and implementation when burning Liquidity
+- It is necessary to have a callback implementation just as present during minting of Liquidity and Swapping to handle excesses, panoptic Protocol should add this implementation and design during burning of Liquidity.
+https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/SemiFungiblePositionManager.sol#L1169-L1190
+```solidity
+function _burnLiquidity(
+        uint256 liquidityChunk,
+        IUniswapV3Pool univ3pool
+    ) internal returns (int256 movedAmounts) {
+        // burn that option's liquidity in the Uniswap Pool.
+        // This will send the underlying tokens back to the Panoptic Pool (msg.sender)
+        (uint256 amount0, uint256 amount1) = univ3pool.burn(
+            liquidityChunk.tickLower(),
+            liquidityChunk.tickUpper(),
+            liquidityChunk.liquidity()
+        );
+
+        // amount0 The amount of token0 that was sent back to the Panoptic Pool
+        // amount1 The amount of token1 that was sent back to the Panoptic Pool
+        // no need to safecast to int from uint here as the max position size is int128
+        // decrement the amountsOut with burnt amounts. amountsOut = notional value of tokens moved
+        unchecked {
+            movedAmounts = int256(0).toRightSlot(-int128(int256(amount0))).toLeftSlot(
+                -int128(int256(amount1))
+            );
+        }
+    }
+```
+###  Report 5:
 #### Missing Validation
 - Absence of validation to ensure positionSize to be burnt is not empty, necessary validation should be added as done in the code below.
 https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/SemiFungiblePositionManager.sol#L487
