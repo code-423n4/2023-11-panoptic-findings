@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "osmanozdemir1",
+  "risk": "2",
+  "title": "Swaps outside of the user-provided slippage limits can occur",
+  "issueId": 294,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/294"
+}
