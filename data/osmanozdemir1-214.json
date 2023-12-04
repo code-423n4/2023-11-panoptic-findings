@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "osmanozdemir1",
+  "risk": "2",
+  "title": "`SemiFungiblePositionManager` does not comply with the ERC1155 standard due to not reverting on transfer to zero address",
+  "issueId": 214,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/214"
+}
