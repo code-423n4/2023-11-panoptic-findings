@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "bin2chen",
+  "risk": "3",
+  "title": "fees may be steal if pool contains ERC777",
+  "issueId": 196,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/196"
+}
