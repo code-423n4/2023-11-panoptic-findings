@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "osmanozdemir1",
+  "risk": "3",
+  "title": "Partial transfers are still possible, which will lead to incorrect storage updates, and recipients will be forced to pay more premiums",
+  "issueId": 256,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/256"
+}
