@@ -35,6 +35,32 @@ https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/libraries/Mat
     }
 ```
 ###  Report 3:
+#### Mistake in Code Description
+- The correct value of type(int24).max should be 8388607 not 8388608 as corrected below
+https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/SemiFungiblePositionManager.sol#L1389
+```solidity
+ ```solidity
+ function getAccountPremium(
+        address univ3pool,
+        address owner,
+        uint256 tokenType,
+        int24 tickLower,
+        int24 tickUpper,
+        int24 atTick,
+        uint256 isLong
+    ) external view returns (uint128 premiumToken0, uint128 premiumToken1) {
+        ...
+
+---        // Compute the premium up to the current block (ie. after last touch until now). Do not proceed if atTick == type(int24).max = 8388608
++++        // Compute the premium up to the current block (ie. after last touch until now). Do not proceed if atTick == type(int24).max = 8388607
+        if (atTick < type(int24).max) {
+            ...
+        }
+
+        ...
+    }
+```
+###  Report 4:
 #### Missing Validation
 - Absence of validation to ensure positionSize to be burnt is not empty, necessary validation should be added as done in the code below.
 https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/SemiFungiblePositionManager.sol#L487
