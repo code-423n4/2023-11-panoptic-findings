@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "tapir",
+  "risk": "3",
+  "title": "ERC1155 token transfer of SFPM can be frontrunned",
+  "issueId": 234,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/234"
+}
