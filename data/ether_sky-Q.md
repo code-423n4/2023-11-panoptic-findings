@@ -58,4 +58,4 @@ if ((itm0 != 0) && (itm1 != 0)) {
 }
 ```
 I believe this might not pose a significant issue when each token is specific to an individual user. 
-However, if multiple users can create a single token, perhaps with one `leg` belonging to each user, through a certain protocol, in such cases, maybe there is need to calculate the swap amounts with precision.
+However, if multiple users can create a single token, perhaps with one `leg` belonging to each user, through a certain protocol, in such cases, maybe there is need to calculate the swap amounts with precision and accumulating `ITM` amounts cannot be done straightforwardly.
