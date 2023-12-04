@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Yanchuan",
+  "risk": "2",
+  "title": "SemiFungiblePositionManager is not compatible with ERC1155, tokens can be transferred to address(0)",
+  "issueId": 250,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/250"
+}
