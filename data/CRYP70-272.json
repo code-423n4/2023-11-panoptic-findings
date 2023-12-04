@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "CRYP70",
+  "risk": "2",
+  "title": "User’s burn transaction could revert with NotEnoughLiquidity because of an off by one error locking tokens in Uniswap",
+  "issueId": 272,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/272"
+}
