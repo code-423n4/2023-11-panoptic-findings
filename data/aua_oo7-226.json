@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "aua_oo7",
+  "risk": "2",
+  "title": "The risk in the provided Solidity code lies in the arithmetic operations and the potential for overflow or underflow in the add and sub functions within the LeftRight library. The code uses unchecked arithmetic operations to add or subtract int256 values, which could result in unexpected behavior if not handled properly",
+  "issueId": 226,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/226"
+}
