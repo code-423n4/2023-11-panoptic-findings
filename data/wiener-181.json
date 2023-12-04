@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "wiener",
+  "risk": "3",
+  "title": "Using Uniswap V3 spot price makes users susceptible to sandwich attacks",
+  "issueId": 181,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/181"
+}
