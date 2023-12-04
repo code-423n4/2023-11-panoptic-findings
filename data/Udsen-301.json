@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "`removedLiquidity` CAN UNDERFLOW DUE TO LACK OF CONDITONAL CHECKS TO VERIFY THE `removedLiquidity > chunkLiquidity` CONDITION THUS BREAKING THE STATE OF THE `s_accountLiquidity[positionKey]` MAPPING, LEADING TO ERRORNEOUS STATE AND VALUE CALCULATIONS",
+  "issueId": 301,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/301"
+}
