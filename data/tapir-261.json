@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "tapir",
+  "risk": "3",
+  "title": "Calculating premium is not possible if the entire liquidity for the range of position in Uniswap is removed by an option buyer",
+  "issueId": 261,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/261"
+}
