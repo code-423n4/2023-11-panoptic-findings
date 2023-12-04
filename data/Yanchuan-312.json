@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Yanchuan",
+  "risk": "2",
+  "title": "SFPM isn't ERC1155 compatible, it doesn't check lengths in the safeBatchTransferFrom function for _ids and _values.",
+  "issueId": 312,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/312"
+}
