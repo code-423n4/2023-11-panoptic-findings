@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "An adversary can mint more tokenized positions than his position's size. ",
+  "issueId": 276,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/276"
+}
