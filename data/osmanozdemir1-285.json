@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "osmanozdemir1",
+  "risk": "2",
+  "title": "Some token IDs can not be validated due to default `riskPartner` being zero.",
+  "issueId": 285,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/285"
+}
