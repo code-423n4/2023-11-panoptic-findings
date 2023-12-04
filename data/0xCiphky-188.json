@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xCiphky",
+  "risk": "3",
+  "title": "Token transfer doesn’t account for premia",
+  "issueId": 188,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/188"
+}
