@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "THE `while` LOOP IN THE `SemiFungiblePositionManager.initializeAMMPool` CAN ENTER A NEVER ENDING LOOP IF THE COMPUTED `pseudo-random number` IS ZERO",
+  "issueId": 296,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/296"
+}
