@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "KupiaSec",
+  "risk": "3",
+  "title": "Incorrect position key management prevents tokens being transferred.",
+  "issueId": 281,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/281"
+}
