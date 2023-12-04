@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "grearlake",
+  "risk": "2",
+  "title": "Lack of deadline check allow pending transactions to be maliciously executed",
+  "issueId": 184,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/184"
+}
