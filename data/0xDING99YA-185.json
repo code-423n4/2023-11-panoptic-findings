@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xDING99YA",
+  "risk": "3",
+  "title": "ERC1155 issued from SemiFungiblePositionManager.sol may not be transferred and can get stuck",
+  "issueId": 185,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/185"
+}
