@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "nocoder",
+  "risk": "2",
+  "title": "The price at which Uniswap swaps will be performed is open to manipulation because it is just the most recent price according to Uniswap ",
+  "issueId": 262,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/262"
+}
