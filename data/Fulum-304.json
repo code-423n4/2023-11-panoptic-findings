@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Fulum",
+  "risk": "2",
+  "title": "Slippage is not well handled on `SemiFungiblePositionManager`",
+  "issueId": 304,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/304"
+}
