@@ -29,6 +29,12 @@ https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39
 Check the address of uniswap or owner are same or not , if same then revert 
 and also check for 0 address
 
+# [L-05] Same function calling may not return the desired value
+## Context
+There are instances throught the whole protocol codebase, that some functions are calling external functions, which may not return the same value as expected .
+## Recommended 
+Check the type of value we expect or change the function name
+
 ....
 ....
 ....
