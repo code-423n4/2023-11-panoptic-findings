@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "t0x1c",
+  "risk": "2",
+  "title": "Multicall can be bricked if any one of its call fails",
+  "issueId": 323,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/323"
+}
