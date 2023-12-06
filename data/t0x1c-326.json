@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "t0x1c",
+  "risk": "2",
+  "title": "safeTransferFrom() will fail for certain token callbacks",
+  "issueId": 326,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/326"
+}
