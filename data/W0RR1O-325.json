@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "W0RR1O",
+  "risk": "2",
+  "title": "Potential array length mismatch in the contract `ERC1155Minimal.sol`",
+  "issueId": 325,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/325"
+}
