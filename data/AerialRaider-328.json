@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "AerialRaider",
+  "risk": "2",
+  "title": "Implementing checks for Recorded Liquidity Synchronization in your SemiFungiblePositionManager contract",
+  "issueId": 328,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/328"
+}
