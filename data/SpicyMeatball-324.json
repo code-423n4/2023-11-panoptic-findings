@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "SpicyMeatball",
+  "risk": "2",
+  "title": "It is possible to transfer removedLiquidity to another account without transfering any SFPM tokens",
+  "issueId": 324,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/324"
+}
