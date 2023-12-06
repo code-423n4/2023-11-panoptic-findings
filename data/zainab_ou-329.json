@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "zainab_ou",
+  "risk": "2",
+  "title": "Silent arithmetic overflow vulnerability in addLiquidity function ",
+  "issueId": 329,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/329"
+}
