@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "critical-or-high",
+  "risk": "2",
+  "title": "Griefing ERC1155 tokens transfer",
+  "issueId": 335,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/335"
+}
