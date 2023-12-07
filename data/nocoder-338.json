@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "nocoder",
+  "risk": "2",
+  "title": "Tokens for certain positions that should be mintable can't be minted because the validate() function will run checks treating legs with no risk partner as if their risk partner is actually leg 0",
+  "issueId": 338,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/338"
+}
