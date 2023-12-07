@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "nocoder",
+  "risk": "2",
+  "title": "The flipToBurnToken function can change a valid tokenId to a tokenId that will no longer pass the validate function, causing burnTokenizedPosition to revert and leaving the user with a position that can be minted but not burned.",
+  "issueId": 337,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/337"
+}
