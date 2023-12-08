@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "tapir",
+  "risk": "3",
+  "title": "Premium owed can be calculated as a very big number due to reentrancy on uninitialized pools",
+  "issueId": 355,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/355"
+}
