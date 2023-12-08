@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xE1",
+  "risk": "2",
+  "title": "ERC1155 position tokens might be permanently lost",
+  "issueId": 351,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/351"
+}
