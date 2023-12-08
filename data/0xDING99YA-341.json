@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xDING99YA",
+  "risk": "3",
+  "title": "Transfer a ERC1155 token can result in a mess of accounting of liquidity and token balance, can also block a user from receiving new token",
+  "issueId": 341,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/341"
+}
