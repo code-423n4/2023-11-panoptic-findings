@@ -11,3 +11,7 @@ Use ``observe()`` instead
 [L-03] - the ERC1155Minimal does not implement a ``balanceOf()``, only a ``balanceOfBatch()`` function, possibly tampering with potential external integrations that would use it's ``balanceOf()``
 
 [L-04] - tokens with blacklists would not allow users to burn their already opened positions, consider creating a mechanism for removing such users' liquidity, compensating the protocol with their fees.
+
+[L-05] - Slippage tolerance values should be inclusive. Consider rewriting
+``if ((newTick >= tickLimitHigh) || (newTick <= tickLimitLow))`` to 
+-> ``if ((newTick > tickLimitHigh) || (newTick < tickLimitLow))`` in order to allow the edge-cases to be accepted.
