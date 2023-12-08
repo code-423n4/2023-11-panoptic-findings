@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Banditx0x",
+  "risk": "2",
+  "title": "Options Token Can be Transferred to an Address That Cannot Mint, Burn or Transfer, Resulting in Permanently Irredeemable Liquidity and Option",
+  "issueId": 344,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/344"
+}
