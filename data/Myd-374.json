@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Myd",
+  "risk": "2",
+  "title": "`addLeg` function lacks bounds validation, enabling encoding of invalid values, disrupting pool interactions or transactions.",
+  "issueId": 374,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/374"
+}
