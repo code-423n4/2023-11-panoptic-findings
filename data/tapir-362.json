@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "tapir",
+  "risk": "3",
+  "title": "If all liquidity is removed in a chunk deposited via SFPM then calculating the premiums owed is not possible",
+  "issueId": 362,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/362"
+}
