@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "tapir",
+  "risk": "2",
+  "title": "Closing a long position can be impossible",
+  "issueId": 364,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/364"
+}
