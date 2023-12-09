@@ -222,5 +222,7 @@ Opportunities for improvement:
 - Build UI to help users understand risks in creating positions
 - Clearly communicate when positions may experience losses due to divergence loss
 
+
+
 ### Time spent:
-10 hours
+73 hours
