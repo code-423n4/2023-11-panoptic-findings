@@ -1,6 +1,6 @@
 ##
 
-## [L-2] Collision risks in pool ID generation in ``getFinalPoolId()`` Function
+## [L-1] Collision risks in pool ID generation in ``getFinalPoolId()`` Function
 
 ### Impact
 The probability of a collision depends on the number of pools and the variety of token0, token1, and fee combinations. The more pools and varied combinations, the higher the chance of a collision.
@@ -55,3 +55,31 @@ https://github.com/code-423n4/2023-11-panoptic/blob/f75d07c345fd795f907385868c39
 ```diff
 +  require(ids.length == amounts.length, "IDs and amounts length mismatch");
 ```
+
+##
+
+## [L-3] Hardcoded function selector in ``safeTransferFrom()`` function
+
+Since the function selector is hardcoded, your ``safeTransferFrom`` function can only interact with contracts that have a ``transferFrom`` method matching the exact signature transferFrom(address,address,uint256). If you encounter a token contract with a slightly different transferFrom method (even if just the parameter names are different), this hardcoded selector won't work.
+
+Even though this function does the same thing, the signature is slightly different (sender and recipient instead of from and to). The function selector for this version of transferFrom will be different from 0x23b872dd. Therefore, your safeTransferFrom function will not be able to interact with this token contract because the hardcoded selector won't match.
+
+```solidity
+FILE: 2023-11-panoptic/contracts/libraries/SafeTransferLib.sol
+
+20: mstore(p, 0x23b872dd00000000000000000000000000000000000000000000000000000000)
+
+```
+https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/libraries/SafeTransferLib.sol#L24
+
+### Recommended Mitigation
+ Instead of hardcoding, calculate the function selector dynamically within your contract based on the actual function signature
+
+##
+
+## [L-4] 
+
+
+
+
+
