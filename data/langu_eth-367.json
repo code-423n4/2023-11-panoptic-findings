@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "langu_eth",
+  "risk": "2",
+  "title": "Solmate's SafeTransferLib won't check if token has code, which can affect transfers in SemiFungiblePositionManager.sol",
+  "issueId": 367,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/367"
+}
