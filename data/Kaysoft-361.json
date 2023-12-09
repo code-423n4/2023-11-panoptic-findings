@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Kaysoft",
+  "risk": "2",
+  "title": "Payable function using delegatecall inside a loop poses a security risk",
+  "issueId": 361,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/361"
+}
