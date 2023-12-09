@@ -18,9 +18,10 @@ https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a
 
 
 ## L-04 User can front run a transfer by transfering their own options
-A bad actor can front run any transfer of options by transferring an option of his own 
+A bad actor can front run any transfer of options by transferring an option of his own since there is a tule that you cannot tranfer an option to someone that already has one 
+
 
 ## L-05 No check for sqrtPriceLimitX96 < slot0Start.sqrtPriceX96
 
 
-## L-06 
+## L-06 Return Values from Uniswap not checked 
