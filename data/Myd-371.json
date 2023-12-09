@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Myd",
+  "risk": "2",
+  "title": "Unchecked from address in _burn allows attackers to burn others' ERC1155 tokens.",
+  "issueId": 371,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/371"
+}
