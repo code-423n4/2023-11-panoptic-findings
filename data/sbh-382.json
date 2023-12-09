@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "sbh",
+  "risk": "3",
+  "title": " Reentrancy Attack contracts/tokens/ERC1155Minimal.sol",
+  "issueId": 382,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/382"
+}
