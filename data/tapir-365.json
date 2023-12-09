@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "tapir",
+  "risk": "2",
+  "title": "Panoptic Math convert1to0 can overflow int128 which will lead to calculating a wrong net amount to swap",
+  "issueId": 365,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/365"
+}
