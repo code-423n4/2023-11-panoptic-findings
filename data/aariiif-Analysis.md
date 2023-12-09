@@ -513,5 +513,7 @@ Overall Panoptic offers an innovative solution improving capital efficiency and 
 
 
 
+
+
 ### Time spent:
-18 hours
+39 hours
