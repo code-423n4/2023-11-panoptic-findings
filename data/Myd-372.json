@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Myd",
+  "risk": "2",
+  "title": "safeTransferFrom allows token theft if destination contract is malicious.",
+  "issueId": 372,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/372"
+}
