@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Myd",
+  "risk": "2",
+  "title": "Possible fee manipulation, attacker claims fees beyond provided liquidity range.",
+  "issueId": 379,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/379"
+}
