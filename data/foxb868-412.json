@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "Race condition allows liquidity trapping, fee siphoning, and pricing manipulation.",
+  "issueId": 412,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/412"
+}
