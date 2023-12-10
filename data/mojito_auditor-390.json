@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "mojito_auditor",
+  "risk": "2",
+  "title": "Token transfers could be disrupted by sending dust to the destination address",
+  "issueId": 390,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/390"
+}
