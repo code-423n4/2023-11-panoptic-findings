@@ -164,13 +164,12 @@ There is no single point of failures and admin risks because many functions not 
 
 ## Architecture and code illustrations
 
-Architecture diagrams
+### SemiFungiblePositionManager Contract
 
-https://drive.google.com/file/d/1lFbafNBY62MbHPXZrlM2sG1VS39xMVtV/view?usp=drivesdk
+![Panpotic_Analysis](https://gist.github.com/assets/58845085/a9ccb615-d117-490b-b146-42964248e4cd)
 
-https://drive.google.com/file/d/1vIG-G_yJfPCv2grv0J3Zyta28w_EYwAD/view?usp=drivesdk
 
-Important functions and Explanations
+### Functions Illustrations
 
 ### ''initializeAMMPool() ''
 
@@ -362,6 +361,8 @@ Confirm that the IUniswapV3Factory interface in your codebase aligns with the ac
 
 ```
 Custom implementations of security features like reentrancy guards are critical and can be potential points of failure.
+
+
 
 
 
