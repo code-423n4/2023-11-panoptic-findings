@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "function getLiquidityForAmount0 and getLiquidityForAmount1 will trigger an arithmetic underflow.",
+  "issueId": 421,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/421"
+}
