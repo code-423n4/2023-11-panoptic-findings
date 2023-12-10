@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "Lack of Validation in `addStrike` Enables Strike Manipulation.",
+  "issueId": 414,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/414"
+}
