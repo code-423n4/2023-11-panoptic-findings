@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "y4y",
+  "risk": "2",
+  "title": "Potential DoS when tick limits are set too close in SwapInAMM()",
+  "issueId": 408,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/408"
+}
