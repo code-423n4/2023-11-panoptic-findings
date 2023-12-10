@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "Gas exhaustion risk: Insufficient gas handling; attacker disrupts, causing fund lockups.",
+  "issueId": 416,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/416"
+}
