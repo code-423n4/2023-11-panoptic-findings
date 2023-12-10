@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": " Repeated deposits exploit `_collectAndWritePositionData`, accumulating more fees than earned, draining UniswapV3 pools.",
+  "issueId": 420,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/420"
+}
