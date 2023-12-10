@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "Manipulating `_updateStoredPremia` lets attackers inflate and extract excessive cached premiums and fees.",
+  "issueId": 418,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/418"
+}
