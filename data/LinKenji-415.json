@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "Unchecked functions allow creation of invalid, overlapping tick ranges, impacting liquidity integrity.",
+  "issueId": 415,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/415"
+}
