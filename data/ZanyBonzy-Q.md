@@ -80,6 +80,10 @@ Consider updating functions below to include a user-input deadline parameter tha
  (uint256 amount0, uint256 amount1) = univ3pool.burn
 ```
 
+- The `SemiFungiblePositionManager` contract implements no payable function or no other way to transfer `ETH`, meaning `ETH` is not usable in the protocol. This itself is not an issue. However, a large portion of the most popular uniswap v3 pools are pairs of a token with `ETH`, [5 out of top 10 pools](https://info.uniswap.org/pairs#/pools), as at time of auditing. The broader implication of this is that these `ETH` pools may be initialized but the protocol will have issues interacting with any of these pools. For instance, users who choose to swap tokens for `ETH` might not be able to withdraw it and will have lose their tokens. We reccommend fixing this.
+
+
+
 **[Tokenid.sol](https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/types/TokenId.sol#L385C1-L386C85)**
 
  - Possible precision loss in `asTicks` function
