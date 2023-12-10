@@ -22,6 +22,18 @@ A bad actor can front run any transfer of options by transferring an option of h
 
 
 ## L-05 No check for sqrtPriceLimitX96 < slot0Start.sqrtPriceX96
+Could result in unexpected reverts
 
 
-## L-06 Return Values from Uniswap not checked 
+## L-06 Return Values from Uniswap callback not checked 
+
+
+## L-07 Having Vegoid as a constant makes no sense 
+The comments describe Vegoid as a way to measure the sensitivity of an option. However, the volitility of an option can change whenever there is a change in price
+This is shown in the function _getpremiumdeltas
+
+
+## L-07 minting positions violates CEI code pattern
+
+
+
