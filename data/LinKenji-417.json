@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "Improper `int24` handling rejects valid strikes, risking failed transactions and constraints.",
+  "issueId": 417,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/417"
+}
