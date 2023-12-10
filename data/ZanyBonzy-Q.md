@@ -58,3 +58,41 @@
     > Positive rebasing tokens arbitrarily increase the balances of token holders. When a positive rebase happens, it creates a surplus that is unaccounted for in the trading pair. Because the extra tokens are unaccounted for in the trading pair, anyone can call skim() on the trading pair and effectively steal the positive difference from the rebalance.
 
     These tokens types should be made allowances for, or their effects should be properly documented for potential users.
+
+
+ - The swap, mint, burn and collect calls to the univ3 contract are all missing a "deadline" parameter. AMMs provide their users with an option to limit the execution of their pending actions, such as swaps or adding and removing liquidity. The most common solution is to include this deadline parameter. It protects users from bad trades and ensures that user's transactions cannot be "saved for later". The lack of deadline means that the can be withheld indefinitely at the advantage of a malicious miner.
+Consider updating functions below to include a user-input deadline parameter that should be passed along to univ3call
+
+[824](https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L824C1-L824C60)
+```
+            (int256 swap0, int256 swap1) = _univ3pool.swap(
+```
+[1147](https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L1147)
+```
+        (uint256 amount0, uint256 amount1) = univ3pool.mint(
+```
+[1222](https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L1222)
+```
+           (uint128 receivedAmount0, uint128 receivedAmount1) = univ3pool.collect(
+```
+[1175](https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L1175)
+```
+ (uint256 amount0, uint256 amount1) = univ3pool.burn
+```
+
+**[Tokenid.sol](https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/types/TokenId.sol#L385C1-L386C85)**
+
+ - Possible precision loss in `asTicks` function
+The `asTicks` function gets the option position's nth leg's (index `legIndex`) tick ranges (lower, upper). But it contains a potential precision loss (due to division before multiplication) when calculating `minTick` and `maxTick`. This can lead to inaccurate results if the division does not yield an exact integer value.
+
+```
+            int24 minTick = (Constants.MIN_V3POOL_TICK / tickSpacing) * tickSpacing;
+            int24 maxTick = (Constants.MAX_V3POOL_TICK / tickSpacing) * tickSpacing;
+```
+  This will affects the comparison made with `legLowerTick` and `legUpperTick` which might cause the function to revert. The butterfly effect of this is seen in the `getLiquidityChunk` and consequently the `_createPositionInAMM` functions which are used in the `_validateAndForwardToAMM`. The `_validateAndForwardToAMM` is the source function for minting and burning tokenized positions. 
+To avoid cases like this, we recommend switching the operators' positions
+
+```
+            int24 minTick = (Constants.MIN_V3POOL_TICK * tickSpacing) / tickSpacing;
+            int24 maxTick = (Constants.MAX_V3POOL_TICK * tickSpacing) / tickSpacing;
+```
