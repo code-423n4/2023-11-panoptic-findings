@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xDING99YA",
+  "risk": "3",
+  "title": "The Main Invariant \"Fees paid to a given user should not exceed the amount of fees earned by the liquidity owned by that user.\" can be broken due to slight difference when computing collected fee",
+  "issueId": 437,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/437"
+}
