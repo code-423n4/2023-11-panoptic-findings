@@ -287,5 +287,7 @@ Minimal centralization risks:
 
 Panoptic has a well-designed architecture and implementation. With minor tweaks, it can provide a robust and efficient protocol for decentralized options trading.
 
+
+
 ### Time spent:
-37 hours
+42 hours
