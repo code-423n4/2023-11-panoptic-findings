@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Banditx0x",
+  "risk": "2",
+  "title": "When all 100% of liquidity is borrowed, premia update is incorrectly skipped",
+  "issueId": 392,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/392"
+}
