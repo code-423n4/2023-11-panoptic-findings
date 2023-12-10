@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "aariiif",
+  "risk": "2",
+  "title": "Unchecked math in ERC1155's `safeTransferFrom` allows an attacker to drain tokens via arithmetic underflow.",
+  "issueId": 401,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/401"
+}
