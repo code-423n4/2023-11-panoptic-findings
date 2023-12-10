@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "aariiif",
+  "risk": "2",
+  "title": "`LiquidityChunk` Encoders Permit Invalid Tick Values. Could block intended workflow but not directly steal funds.",
+  "issueId": 398,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/398"
+}
