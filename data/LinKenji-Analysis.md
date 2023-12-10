@@ -198,5 +198,7 @@ Focused scope limits externalities.
 
 Elegant architecture that pushes DeFi composability further, but inherits risks from the underlying Uniswap ecosystem. Additional protective checks would reduce attack surface.
 
+
+
 ### Time spent:
-13 hours
+46 hours
