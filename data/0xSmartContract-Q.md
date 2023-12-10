@@ -1,6 +1,7 @@
 ##### QA Report Issues List
 
 - [x] **Low 01** → Use a more recent version of OpenZeppelin dependencies
+- [x] **Low 02** → `Multicall.multicall()` function raw revert pattern should be change
 - [x] **Non-Critical 01** → Test suites do not test for attack vectors, especially re-entrancy
 - [x] **Non-Critical 02** → Project Upgrade and Stop Scenario should be
 - [x] **Non-Critical 03** → Missing Event for  initialize
@@ -28,6 +29,55 @@ lib/openzeppelin-contracts/package-lock.json:
 Old version of OZ is used `(4.8.3)`, newer version can be used `(5.0.0)` 
 
 https://github.com/OpenZeppelin/openzeppelin-contracts/releases/tag/v5.0.0
+
+
+### [Low-2] `Multicall.multicall()` function raw revert pattern should be change
+
+**Description:**
+
+`Multicall.multicall()` function is common pattern used in Ethereum smart contracts to execute multiple calls in a single transaction. This is particularly useful for optimizing transaction costs and efficiency. The original of this pattern is also available in Uniswap v3.
+
+Raw Revert Reason: It reverts with the raw error message directly from the call. This approach is straightforward but might not always provide clear, human-readable error messages.
+
+Therefore I recommend updating it
+
+
+```diff
+contracts/multicall/Multicall.sol:
+  12:     function multicall(bytes[] calldata data) public payable returns (bytes[] memory results) {
+  13:         results = new bytes[](data.length);
+  14:         for (uint256 i = 0; i < data.length; ) {
+  15:             (bool success, bytes memory result) = address(this).delegatecall(data[i]);
+  16: 
+  17:             if (!success) {
+  18:                 // Bubble up the revert reason
+  19:                 // The bytes type is ABI encoded as a length-prefixed byte array
+  20:                 // So we simply need to add 32 to the pointer to get the start of the data
+  21:                 // And then revert with the size loaded from the first 32 bytes
+  22:                 // Other solutions will do work to differentiate the revert reasons and provide paranthetical information
+  23:                 // However, we have chosen to simply replicate the the normal behavior of the call
+  24:                 // NOTE: memory-safe because it reads from memory already allocated by solidity (the bytes memory result)
+- 25:                 assembly ("memory-safe") {
+- 26:                     revert(add(result, 32), mload(result))
+- 27:                 }
+
++		if (result.length < 68) revert();
++   		          assembly {
++	                          result := add(result, 0x04)
+                }
+                revert(abi.decode(result, (string)));
+  28:             }
+  29: 
+  30:             results[i] = result;
+  31: 
+  32:             unchecked {
+  33:                 ++i;
+  34:             }
+  35:         }
+  36:     }
+  36  }
+```
+
 
 
 ### [Non Critical-1] Test suites do not test for attack vectors, especially re-entrancy
@@ -68,6 +118,10 @@ contracts/SemiFungiblePositionManager.sol:
 
 
 ```
+
+
+
+
 
 ### [Non Critical-2] Project Upgrade and Stop Scenario should be
 
