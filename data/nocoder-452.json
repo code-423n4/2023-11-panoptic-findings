@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "nocoder",
+  "risk": "2",
+  "title": "chunkLiquidity is subtracted from removedLiquidity in an unchecked block without a check that chunkLiquidity is less than removedLiquidity, so it could lead to an underflow",
+  "issueId": 452,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/452"
+}
