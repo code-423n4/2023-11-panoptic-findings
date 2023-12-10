@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "wisdomn_",
+  "risk": "3",
+  "title": "The subtraction in function getAmount0ForLiquidity and getAmount1ForLiquidity will trigger an arithmetic underflow.",
+  "issueId": 428,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/428"
+}
