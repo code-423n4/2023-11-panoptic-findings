@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "LinKenji",
+  "risk": "2",
+  "title": "`initializeAMMPool` callable by anyone.",
+  "issueId": 426,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/426"
+}
