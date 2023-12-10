@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "nocoder",
+  "risk": "2",
+  "title": "Calls to burnTokenizedPosition applies the flipToBurnToken mask to the tokenID, which clears the bits of the tokenID which contain the pool ID, which will either cause a revert or point to the wrong pool.",
+  "issueId": 389,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/389"
+}
