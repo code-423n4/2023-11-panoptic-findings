@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "aariiif",
+  "risk": "2",
+  "title": "Missing authorization check in _burn allows unauthorized token draining. Risk in public functions calling _burn.",
+  "issueId": 402,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/402"
+}
