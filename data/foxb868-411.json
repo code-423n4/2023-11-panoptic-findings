@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "foxb868",
+  "risk": "2",
+  "title": "Unchecked math in LeftRight library risks arithmetic overflow, impacting contract.",
+  "issueId": 411,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/411"
+}
