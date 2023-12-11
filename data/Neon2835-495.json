@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Neon2835",
+  "risk": "3",
+  "title": "The removedLiquidity variable has a potential risk of underflow vulnerability",
+  "issueId": 495,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/495"
+}
