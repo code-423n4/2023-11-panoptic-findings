@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "drextron",
+  "risk": "2",
+  "title": "Protocol docs say fee-on-transfer ERC20's are not supported, but there's no checks for these types of tokens!",
+  "issueId": 461,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/461"
+}
