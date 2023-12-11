@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "0xmuxyz",
+  "risk": "3",
+  "title": "The `swapAmount` could be manipulated - due to that the `sqrtPriceX96`-retrieved via the UniswapV3Pool#`slot0()` would be the `spot` price",
+  "issueId": 456,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/456"
+}
