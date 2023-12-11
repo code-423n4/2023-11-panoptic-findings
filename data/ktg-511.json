@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "ktg",
+  "risk": "2",
+  "title": "getAccountPremium does not take into account the history of liquidity change",
+  "issueId": 511,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/511"
+}
