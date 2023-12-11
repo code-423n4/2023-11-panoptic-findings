@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "linmiaomiao",
+  "risk": "3",
+  "title": "Exploit reentrancy in transfer function, can get double postion token in mintTokenizedPosition function.",
+  "issueId": 500,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/500"
+}
