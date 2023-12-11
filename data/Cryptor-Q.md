@@ -4,7 +4,7 @@ Minting and Burning positions does not have a deadline check. Without this check
 https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L510-L518
 
 ## L-02 No check for active sequencer on L2s 
-The protocol does not check whether the L2 sequencer is active this can result in outdated trades and incorrect premia calculations 
+The protocol does not check whether the L2 sequencer is active when minting or burning positions. This can result in outdated trades and incorrect premia calculations and exercising options that unexpectedly becomes out of the money 
 
 https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L510-L518
 
@@ -18,22 +18,28 @@ https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a
 
 
 ## L-04 User can front run a transfer by transfering their own options
-A bad actor can front run any transfer of options by transferring an option of his own since there is a tule that you cannot tranfer an option to someone that already has one 
+A bad actor can front run any transfer of options by transferring an option of his own since there is a rule that you cannot transfer an option to someone that already has one 
 
 
-## L-05 No check for sqrtPriceLimitX96 < slot0Start.sqrtPriceX96
-Could result in unexpected reverts
+## L-05 Using sqrtPriceX96 could result in partial swaps in some situations
+
+https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L775
+
+
 
 
 ## L-06 Return Values from Uniswap callback not checked 
 
 
 ## L-07 Having Vegoid as a constant makes no sense 
-The comments describe Vegoid as a way to measure the sensitivity of an option. However, the volitility of an option can change whenever there is a change in price
+The comments describe Vegoid as a way to measure the sensitivity of an option. However, the volatility of an option can change whenever there is a change in price
 This is shown in the function _getpremiumdeltas
 
 
 ## L-07 minting positions violates CEI code pattern
+Minting positions violates the checks-effects-interaction code pattern used to prevent reentrancy
+
+https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L519-L533
 
 
 
