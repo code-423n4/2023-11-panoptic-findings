@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "drextron",
+  "risk": "2",
+  "title": "initializeAMMPool can be called by anyone, there should be fee constraint validation!",
+  "issueId": 464,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/464"
+}
