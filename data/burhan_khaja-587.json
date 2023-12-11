@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "burhan_khaja",
+  "risk": "2",
+  "title": "Incorrect Values Returned by sub(int256,int256) Function of LeftRight Library on Specific Edge Cases",
+  "issueId": 587,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/587"
+}
