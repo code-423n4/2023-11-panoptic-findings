@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "hubble",
+  "risk": "2",
+  "title": "Position token may be lost if mintTokenizedPosition is executed in constructor of a contract",
+  "issueId": 627,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/627"
+}
