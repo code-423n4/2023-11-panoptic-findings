@@ -173,3 +173,49 @@ This issue, while not leading to fund loss or severe security risks, can inconve
 ## **Recommendation:**
 
 Clearly document to users about the specific conditions under which token transfers are possible, especially concerning the creation of multiple legs for the same position.
+
+## Title:  ****Unrestricted Initialization of Uniswap Pools in the Protocol****
+
+## **Severity:**
+
+- Low Risk
+
+## **Relevant GitHub Links:**
+- https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L351
+
+## **Summary:**
+
+The protocol has specific guidelines regarding the pools that are permissible for use. However, the **`initializeAMMPool`** function, responsible for setting up Uniswap V3 pools within the protocol, does not enforce these guidelines. Specifically, it allows the initialization of any valid Uniswap pool, even those explicitly disallowed by the protocol's documentation. on the pools that can be used on the protocol, specifically it disallows the following
+
+“**Very large quantities of tokens are not supported. It should be assumed that for any given pool, the cumulative amount of tokens that enter the system (associated with that pool, through adding liquidity, collection, etc.) will not exceed 2^127 - 1.”**
+
+“**Pools with a tick spacing of 1 are not currently supported. For the purposes of this audit, the only tick spacings that are supported are 10, 60, and 200”**
+
+According to the protocol's documentation, pools with an exceptionally large token quantity (exceeding 2^127 - 1) and those with a tick spacing of 1 are not supported. Despite this, the **`initializeAMMPool`** function lacks mechanisms to filter out these disallowed pools, which could potentially cause underflow/overflow issues or precision loss errors in the protocol. Moreover, these pools have not undergone thorough testing, potentially exposing users to unanticipated risks.
+
+```
+function initializeAMMPool(address token0, address token1, uint24 fee) external {
+        // compute the address of the Uniswap v3 pool for the given token0, token1, and fee tier
+        address univ3pool = FACTORY.getPool(token0, token1, fee);
+
+        // reverts if the Uni v3 pool has not been initialized
+        if (address(univ3pool) == address(0)) revert Errors.UniswapPoolNotInitialized();
+
+        ...
+        if (s_AddrToPoolIdData[univ3pool] != 0) return;
+
+        ...
+        uint64 poolId = PanopticMath.getPoolId(univ3pool);
+
+        while (address(s_poolContext[poolId].pool) != address(0)) {
+            poolId = PanopticMath.getFinalPoolId(poolId, token0, token1, fee);
+        }
+        
+    }
+```
+
+The absence of these restrictions in the initialization function presents a risk, as users might inadvertently interact with unsupported pools, assuming them to be valid within the protocol.
+
+## **Recommendation:**
+
+Consider implementing a whitelist mechanism for pools, allowing only those pools that have been vetted and approved by the protocol administrators.
