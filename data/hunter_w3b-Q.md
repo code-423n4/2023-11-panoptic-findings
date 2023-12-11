@@ -1,4 +1,4 @@
-# Low Risk
+# Low Risk and Non-Critical Issues
 
 | Number |                                                                                              |
 | :----: | :------------------------------------------------------------------------------------------- |
@@ -7,6 +7,11 @@
 | [L-03] | Missing Contract Existence Checks                                                            |
 | [L-04] | Incorrect Token Amount Calculations                                                          |
 | [L-05] | No checks for duplicate mappings ERC1155Minimal::balanceOf, ERC1155Minimal::isApprovedForAll |
+| [L-06] | Approval bypass vulnerability in ERC1155 token transfer functions                            |
+| [L-07] | Misaligned Ticks and Liquidity Issue                                                         |
+| [L-08] | Incorrect Rounding FeesCalc::calculateAMMSwapFeesLiquidityChunk function                     |
+| [N-09] | Pool Initialized Event Missing Sender Information                                            |
+| [N-10] | RegisterTokenTransfer Loops Over Unbounded Input Array                                       |
 
 ## [L-01] There is no restriction for SemiFungiblePositionManager::initializeAMMPool function
 
@@ -160,3 +165,249 @@ File: contracts/tokens/ERC1155Minimal.sol
 https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/tokens/ERC1155Minimal.sol#L62-L68
 
 Recommended: Check for existing mappings before updates
+
+## [L-06] Approval bypass vulnerability in ERC1155 token transfer functions
+
+The ERC1155Minimal contract's token transfer functions safeTransferFrom and safeBatchTransferFrom only check if the sender is the token owner or an approved operator, but do not validate that the amount being transferred does not exceed the approved amount.
+
+This allows an approved operator to transfer more tokens than were approved, bypassing the intended permission model.
+
+```solidity
+File: tokens/ERC1155Minimal.sol
+
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 id,
+        uint256 amount,
+        bytes calldata data
+    ) public {
+        if (!(msg.sender == from || isApprovedForAll[from][msg.sender])) revert NotAuthorized();
+
+        balanceOf[from][id] -= amount;
+
+        // balance will never overflow
+        unchecked {
+            balanceOf[to][id] += amount;
+        }
+
+        afterTokenTransfer(from, to, id, amount);
+
+        emit TransferSingle(msg.sender, from, to, id, amount);
+
+        if (to.code.length != 0) {
+            if (
+                ERC1155Holder(to).onERC1155Received(msg.sender, from, id, amount, data) !=
+                ERC1155Holder.onERC1155Received.selector
+            ) {
+                revert UnsafeRecipient();
+            }
+        }
+    }
+
+
+    function safeBatchTransferFrom(
+        address from,
+        address to,
+        uint256[] calldata ids,
+        uint256[] calldata amounts,
+        bytes calldata data
+    ) public virtual {
+        if (!(msg.sender == from || isApprovedForAll[from][msg.sender])) revert NotAuthorized();
+
+        // Storing these outside the loop saves ~15 gas per iteration.
+        uint256 id;
+        uint256 amount;
+
+        for (uint256 i = 0; i < ids.length; ) {
+            id = ids[i];
+            amount = amounts[i];
+
+            balanceOf[from][id] -= amount;
+
+            // balance will never overflow
+            unchecked {
+                balanceOf[to][id] += amount;
+            }
+
+            // An array can't have a total length
+            // larger than the max uint256 value.
+            unchecked {
+                ++i;
+            }
+        }
+
+        afterTokenTransfer(from, to, ids, amounts);
+
+        emit TransferBatch(msg.sender, from, to, ids, amounts);
+
+        if (to.code.length != 0) {
+            if (
+                ERC1155Holder(to).onERC1155BatchReceived(msg.sender, from, ids, amounts, data) !=
+                ERC1155Holder.onERC1155BatchReceived.selector
+            ) {
+                revert UnsafeRecipient();
+            }
+        }
+    }
+
+```
+
+https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/tokens/ERC1155Minimal.sol#L90-L118
+
+## [L-07] Misaligned Ticks and Liquidity Issue
+
+The FeesCalc.sol reads the liquidity chunk ticks (lower/upper) separately from the starting liquidity amount. This opens up a reentrancy/race condition bug where the ticks and liquidity could become misaligned if another contract is able to call in between.
+
+- Attacker calls calculateAMMSwapFeesLiquidityChunk(), passing a valid liquidityChunk
+- calculateAMMSwapFeesLiquidityChunk() reads ticks from chunk
+- Attacker reverts chunk ticks before returning
+- calculateAMMSwapFeesLiquidityChunk() proceeds to calculate fees using invalid ticks
+
+Incorrect fee amounts could be calculated if ticks and liquidity are out of sync. This could lead to losses for the pool or position holders.
+
+```solidity
+File:  contracts/libraries/FeesCalc.sol
+
+  function calculateAMMSwapFeesLiquidityChunk(
+        IUniswapV3Pool univ3pool,
+        int24 currentTick,
+        uint128 startingLiquidity,
+        uint256 liquidityChunk
+    ) public view returns (int256 feesEachToken) {
+        // extract the amount of AMM fees collected within the liquidity chunk`
+        // note: the fee variables are *per unit of liquidity*; so more "rate" variables
+        (
+            uint256 ammFeesPerLiqToken0X128,
+            uint256 ammFeesPerLiqToken1X128
+        ) = _getAMMSwapFeesPerLiquidityCollected(
+                univ3pool,
+                currentTick,
+                liquidityChunk.tickLower(),
+                liquidityChunk.tickUpper()
+            );
+
+        // Use the fee growth (rate) variable to compute the absolute fees accumulated within the chunk:
+        //   ammFeesToken0X128 * liquidity / (2**128)
+        // to store the (absolute) fees as int128:
+        feesEachToken = feesEachToken
+            .toRightSlot(int128(int256(Math.mulDiv128(ammFeesPerLiqToken0X128, startingLiquidity))))
+            .toLeftSlot(int128(int256(Math.mulDiv128(ammFeesPerLiqToken1X128, startingLiquidity))));
+    }
+```
+
+https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/libraries/FeesCalc.sol#L54-L78
+
+Read all required data atomically from a single source
+
+## [L-08] Incorrect Rounding FeesCalc::calculateAMMSwapFeesLiquidityChunk function
+
+Integers are converted between types like 128-bit and 256-bit without specifying a rounding mode. This could lead to small inaccuracies accumulating over many conversions.
+
+```solidity
+File: contracts/libraries/FeesCalc.sol
+
+        feesEachToken = feesEachToken
+            .toRightSlot(int128(int256(Math.mulDiv128(ammFeesPerLiqToken0X128, startingLiquidity))))
+            .toLeftSlot(int128(int256(Math.mulDiv128(ammFeesPerLiqToken1X128, startingLiquidity))));
+    }
+```
+
+https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/libraries/FeesCalc.sol#L75-L78
+
+## [N-09] Pool Initialized Event Missing Sender Information
+
+The PoolInitialized event emitted in the initializeAMMPool function does not include the address of the sender/initiator of the pool initialization.
+
+Not including the msg.sender in this event makes it difficult to track which user/contract triggered the pool initialization. This reduces the usefulness of the event for monitoring and analytics purposes.
+
+```solidity
+File: contracts/SemiFungiblePositionManager.sol
+
+    function initializeAMMPool(address token0, address token1, uint24 fee) external {
+        // compute the address of the Uniswap v3 pool for the given token0, token1, and fee tier
+        address univ3pool = FACTORY.getPool(token0, token1, fee);
+
+        // reverts if the Uni v3 pool has not been initialized
+        if (address(univ3pool) == address(0)) revert Errors.UniswapPoolNotInitialized();
+
+        // return if the pool has already been initialized in SFPM
+        // @dev pools can be initialized from a Panoptic pool or by calling initializeAMMPool directly, reverting
+        // would prevent any PanopticPool from being deployed
+        // @dev some pools may not be deployable if the poolId has a collision (since we take only 8 bytes)
+        // if poolId == 0, we have a bit on the left set if it was initialized, so this will still return properly
+        if (s_AddrToPoolIdData[univ3pool] != 0) return;
+
+        // Set the base poolId as last 8 bytes of the address (the first 16 hex characters)
+        // @dev in the unlikely case that there is a collision between the first 8 bytes of two different Uni v3 pools
+        // @dev increase the poolId by a pseudo-random number
+        uint64 poolId = PanopticMath.getPoolId(univ3pool);
+
+        while (address(s_poolContext[poolId].pool) != address(0)) {
+            poolId = PanopticMath.getFinalPoolId(poolId, token0, token1, fee);
+        }
+        // store the poolId => UniswapV3Pool information in a mapping
+        // `locked` can be initialized to false because the pool address makes the slot nonzero
+        s_poolContext[poolId] = PoolAddressAndLock({
+            pool: IUniswapV3Pool(univ3pool),
+            locked: false
+        });
+
+        // store the UniswapV3Pool => poolId information in a mapping
+        // add a bit on the end to indicate that the pool is initialized
+        // (this is for the case that poolId == 0, so we can make a distinction between zero and uninitialized)
+        unchecked {
+            s_AddrToPoolIdData[univ3pool] = uint256(poolId) + 2 ** 255;
+        }
+        emit PoolInitialized(univ3pool);
+
+        return;
+
+        // this disables `memoryguard` when compiling this contract via IR
+        // it is classed as a potentially unsafe assembly block by the compiler, but is in fact safe
+        // we need this because enabling `memoryguard` and therefore StackLimitEvader increases the size of the contract significantly beyond the size limit
+        assembly {
+            mstore(0, 0xFA20F71C)
+        }
+    }
+```
+
+https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/SemiFungiblePositionManager.sol#L351-L396
+
+```diff
+event PoolInitialized(
+   address indexed pool,
++   address indexed sender
+);
+
+
+
+-        emit PoolInitialized(univ3pool);
++        emit PoolInitialized(univ3pool, msg.sender);
+```
+
+## [N-10] RegisterTokenTransfer Loops Over Unbounded Input Array
+
+The afterTokenTransfer function iterates over the ids and amounts arrays passed in without bounding the length. This could allow gas exhaustion attacks by supplying very long input arrays.
+
+By not validating the array length, a malicious actor could craft transactions with extremely long input arrays, wasting gas as the loops continue processing. This degrades the user experience.
+
+```solidity
+File: contracts/SemiFungiblePositionManager.sol
+
+    function afterTokenTransfer(
+        address from,
+        address to,
+        uint256[] memory ids,
+        uint256[] memory amounts
+    ) internal override {
+        for (uint256 i = 0; i < ids.length; ) {
+            registerTokenTransfer(from, to, ids[i], amounts[i]);
+            unchecked {
+                ++i;
+            }
+        }
+    }
+```
+
+https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/SemiFungiblePositionManager.sol#L544-L556
