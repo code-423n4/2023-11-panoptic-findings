@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "DarkTower",
+  "risk": "2",
+  "title": " Usage of `slot0` to get `sqrtPriceLimitX96` of UniswapV3 is easy to manipulate and can lead to price manipulation attacks",
+  "issueId": 505,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/505"
+}
