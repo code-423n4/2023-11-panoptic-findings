@@ -59,3 +59,31 @@ if ((itm0 != 0) && (itm1 != 0)) {
 ```
 I believe this might not pose a significant issue when each token is specific to an individual user. 
 However, if multiple users can create a single token, perhaps with one `leg` belonging to each user, through a certain protocol, in such cases, maybe there is need to calculate the swap amounts with precision and accumulating `ITM` amounts cannot be done straightforwardly.
+
+4. `Swapping` can also occur during the minting of `SFPM` tokens.
+In the `mintTokenizedPosition` function, `swapping` can take place by altering the order of parameters `slippageTickLimitLow` and `slippageTickLimitHigh`.
+```
+function _validateAndForwardToAMM() {
+    bool swapAtMint;
+    {
+        if (tickLimitLow > tickLimitHigh) {
+            swapAtMint = true;
+            (tickLimitLow, tickLimitHigh) = (tickLimitHigh, tickLimitLow);
+        }
+    }
+}
+```
+```
+function _createLegInAMM() {
+    if (_tokenType == 1) {
+        // extract amount moved out of UniswapV3 pool
+        _itmAmounts = _itmAmounts.toRightSlot(_moved.rightSlot());
+    }
+         
+    if (_tokenType == 0) {
+        // Add this in-the-money amount transacted.
+        _itmAmounts = _itmAmounts.toLeftSlot(_moved.leftSlot());
+    }
+}
+```
+It's uncertain whether this `swap` is necessary during the `minting` process. 
