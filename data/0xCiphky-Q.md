@@ -219,3 +219,55 @@ The absence of these restrictions in the initialization function presents a risk
 ## **Recommendation:**
 
 Consider implementing a whitelist mechanism for pools, allowing only those pools that have been vetted and approved by the protocol administrators.
+
+## Title:  ****Limited Strike Price Options Due to Tick Spacing Multiples****
+
+## **Severity:**
+
+- Low Risk
+
+## **Relevant GitHub Links:**
+
+- https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/types/TokenId.sol#L374
+
+## **Vulnerability Details:**
+
+The protocol's method for determining the strike price of an option position requires that the strike price be a multiple of the corresponding pool's tick spacing (10, 60, 200 in this context). This constraint is due to the way the protocol calculates the upper and lower ticks of an option leg, based on the strike price and the pool's tick spacing.
+
+In the **`asTicks`** function, the lower and upper ticks (**`legLowerTick`** and **`legUpperTick`**) are derived from the leg's width and strike price. These ticks are then validated to ensure they align with the pool's tick spacing. The function enforces this alignment through a modulo operation, ensuring that both the lower and upper ticks are multiples of the tick spacing. This constraint inherently limits the strike price to also be a multiple of the tick spacing.
+
+```
+function asTicks(uint256 self, uint256 legIndex, int24 tickSpacing)
+        ...
+    {
+        unchecked {
+            int24 selfWidth = self.width(legIndex); //width; defined as (tickUpper - tickLower) / tickSpacing
+            int24 selfStrike = self.strike(legIndex); //strike price; defined as (tickUpper + tickLower) / 2
+
+            ...
+
+            // The width is from lower to upper tick, the one-sided range is from strike to upper/lower
+            int24 oneSidedRange = (selfWidth * tickSpacing) / 2;
+
+            (legLowerTick, legUpperTick) = (selfStrike - oneSidedRange, selfStrike + oneSidedRange);
+
+            // Revert if the upper/lower ticks are not multiples of tickSpacing
+            // Revert if the tick range extends from the strike outside of the valid tick range
+            // These are invalid states, and would revert silently later in `univ3Pool.mint`
+            if (
+                legLowerTick % tickSpacing != 0 || legUpperTick % tickSpacing != 0 || legLowerTick < minTick
+                    || legUpperTick > maxTick
+            ) revert Errors.TicksNotInitializable();
+        }
+    }
+```
+
+As a result, users are restricted in their choice of strike prices for their positions, only able to select values that conform to the multiples of the pool's tick spacing.
+
+## **Impact:**
+
+This limitation narrows the range of available strike prices, users seeking specific strike prices that don't align with the tick spacing multiples may find the protocol less accommodating to their trading strategies.
+
+## **Recommendation:**
+
+Ensure that users are clearly informed about the tick spacing constraints and how they impact strike price selection.
