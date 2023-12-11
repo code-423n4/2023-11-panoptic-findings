@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "jeff",
+  "risk": "2",
+  "title": "Denial-of-Service (DoS) Risk in Multicall Function",
+  "issueId": 518,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/518"
+}
