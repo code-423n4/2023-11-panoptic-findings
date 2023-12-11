@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "burhan_khaja",
+  "risk": "2",
+  "title": "Examining Incorrect Return Values from the add(int256,int256) Function in the LeftRight Library",
+  "issueId": 617,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/617"
+}
