@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "baice",
+  "risk": "2",
+  "title": "Different position input of token0 and token1 , will result in different pool Id ",
+  "issueId": 497,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/497"
+}
