@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "cheatc0d3",
+  "risk": "2",
+  "title": "Possible Gas Limit DoS on balanceOfBatch",
+  "issueId": 573,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/573"
+}
