@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "ThenPuli",
+  "risk": "2",
+  "title": "Premium computation is wrong when user go full long on a positionKey",
+  "issueId": 483,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/483"
+}
