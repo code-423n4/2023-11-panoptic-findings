@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "ktg",
+  "risk": "2",
+  "title": "ERC1155Minimal does not implement some security rules set by EIP1155",
+  "issueId": 473,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/473"
+}
