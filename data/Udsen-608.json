@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "Udsen",
+  "risk": "2",
+  "title": "`SemiFungiblePositionManager.swapInAMM` FUNCTION DOES NOT IMPLEMENT EITHER SLIPPAGE PROTECTION OR DEADLINE PROTECTION THUS CREATING LOSS OF FUNDS TO THE `msg.sender`",
+  "issueId": 608,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/608"
+}
