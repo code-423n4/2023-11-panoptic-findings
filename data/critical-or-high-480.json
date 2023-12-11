@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "critical-or-high",
+  "risk": "3",
+  "title": "OTM position is incorrectly considered partially ITM, this may lead to liquidity shortage",
+  "issueId": 480,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/480"
+}
