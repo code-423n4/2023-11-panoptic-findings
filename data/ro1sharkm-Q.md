@@ -16,3 +16,9 @@ The `SemiFungiblePositionManager` contract claims to implement the ERC1155 stand
 
 Implement the missing ERC1155 functions in the SemiFungiblePositionManager contract to ensure compliance with the ERC1155 standard
 https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L72
+
+## [QA-4] Missing 'msg.sender' in 'PoolInitialized' Event
+The PoolInitialized event is emitted without including the `msg.sender` information. Including the msg.sender in the event provides transparency and helps track the initiator of the pool initialization.
+```
+        emit PoolInitialized(univ3pool);
+```
