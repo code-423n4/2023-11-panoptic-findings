@@ -22,3 +22,11 @@ The PoolInitialized event is emitted without including the `msg.sender` informat
 ```
         emit PoolInitialized(univ3pool);
 ```
+## [QA-5] Lack of Withdrawal Mechanism for Received Ether in `Multicall`
+The `Multicall` contract is designed to be payable, allowing it to receive Ether during delegate calls. However, there is a critical oversight in the absence of a mechanism to withdraw or manage the received Ether. This vulnerability may lead to Ether accumulation within the contract creating a potential risk of fund lockup and limiting the contract's ability to efficiently handle received Ether.
+```
+    function multicall(bytes[] calldata data) public payable returns (bytes[] memory results) {
+
+```
+
+```
