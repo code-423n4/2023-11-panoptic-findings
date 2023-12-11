@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "niser93",
+  "risk": "3",
+  "title": "Freezing of position fees due to impossibility to burn it if positionSize is zero",
+  "issueId": 620,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/620"
+}
