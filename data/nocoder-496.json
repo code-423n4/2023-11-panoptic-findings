@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "nocoder",
+  "risk": "2",
+  "title": "Use of Uniswap premia (fees generated) to calculate the cost of options is open to manipulation by performing swaps in Uniswap, which can lead to artificial losses for options buyers. They also won't know the price of the option ahead of time so can't protect themselves from it.",
+  "issueId": 496,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/496"
+}
