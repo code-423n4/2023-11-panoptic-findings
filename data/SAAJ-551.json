@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "SAAJ",
+  "risk": "2",
+  "title": "User can approve all tokens and not just that are required for transfer",
+  "issueId": 551,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/551"
+}
