@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "fnanni",
+  "risk": "3",
+  "title": "s_accountLiquidity[positionKey].leftSlot() (a.k.a. removedLiquidity) can underflow after certain partial transfers",
+  "issueId": 489,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/489"
+}
