@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "bakwas",
+  "risk": "2",
+  "title": "Lack of validation for PoolId",
+  "issueId": 604,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/604"
+}
