@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "drextron",
+  "risk": "2",
+  "title": "Protocol docs say ERC777's are supported, but no reentrancy guards to prevent reenthttps://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/SemiFungiblePositionManager.sol#L407",
+  "issueId": 463,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/463"
+}
