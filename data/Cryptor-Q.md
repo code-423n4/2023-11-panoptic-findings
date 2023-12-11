@@ -48,5 +48,11 @@ https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a
 Use a helper to send back any leftover ETH
 
 
+## L-09 GetPremiaDeltas can be manipulated with flash swaps
+
+The function getPremiaDeltas uses the current liquidity in a pool to calculated the premia. However, this can be manipulated using the flash function in uniswap V3
+
+https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L1255-L1329
+
 
 
