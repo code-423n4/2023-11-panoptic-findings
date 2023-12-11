@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "burhan_khaja",
+  "risk": "2",
+  "title": "False Overflow Reported by add(uint256,uint256) of LeftRight Library for values Within uint256 Maximum Limit",
+  "issueId": 550,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/550"
+}
