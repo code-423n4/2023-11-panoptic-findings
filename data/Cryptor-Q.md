@@ -41,5 +41,12 @@ Minting positions violates the checks-effects-interaction code pattern used to p
 
 https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/SemiFungiblePositionManager.sol#L519-L533
 
+## L-08 Multicall being payable could result in native ETH being lost on failed transactions
+
+https://github.com/code-423n4/2023-11-panoptic/blob/aa86461c9d6e60ef75ed5a1fe36a748b952c8666/contracts/multicall/Multicall.sol#L12
+
+Use a helper to send back any leftover ETH
+
+
 
 
