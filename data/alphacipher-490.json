@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "alphacipher",
+  "risk": "2",
+  "title": "Approval Bypass in ERC1155Minimal::safeTransferFrom Functions",
+  "issueId": 490,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/490"
+}
