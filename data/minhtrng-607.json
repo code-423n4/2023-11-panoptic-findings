@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "minhtrng",
+  "risk": "2",
+  "title": "No revert on zero address breaks ERC1155 compatibility",
+  "issueId": 607,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/607"
+}
