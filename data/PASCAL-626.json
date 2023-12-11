@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "PASCAL",
+  "risk": "3",
+  "title": "Users 'removedLiquidity' is not updated after they remove liquidity ",
+  "issueId": 626,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/626"
+}
