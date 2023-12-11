@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "hubble",
+  "risk": "2",
+  "title": "Same values for poolId == 0 and pool which is uninitialized may cause wrong minting/burning of positions",
+  "issueId": 594,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/594"
+}
