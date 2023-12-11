@@ -87,3 +87,20 @@ function _createLegInAMM() {
 }
 ```
 It's uncertain whether this `swap` is necessary during the `minting` process. 
+
+5. The user cannot receive `SFPM` tokens when `s_accountFeesBase` is not `0`.
+Consider the following `scenario`:
+User `A` transfers `SFPM` tokens to User `B`. 
+After some time, User `B` consumes these SFPM tokens, reducing its `liquidity` to `0`. 
+Subsequently, User `A` attempts to mint the same `SFPM` tokens and transfer them to User `B` again. 
+However, User `B` is unable to receive these tokens due to `s_accountFeesBase` not being `0`.
+```
+function registerTokenTransfer() internal {
+    if (
+        (s_accountLiquidity[positionKey_to] != 0) ||
+        (s_accountFeesBase[positionKey_to] != 0)
+    ) revert Errors.TransferFailed();
+}
+```
+
+It might be beneficial to create a function to set `s_accountFeesBase` to `0` when there is no `liquidity`.
