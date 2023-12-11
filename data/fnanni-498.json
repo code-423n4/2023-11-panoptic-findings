@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "fnanni",
+  "risk": "3",
+  "title": "Transferring 0 amounts of non-existent tokens when all liquidity is removed results in unexpected behaviors",
+  "issueId": 498,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/498"
+}
