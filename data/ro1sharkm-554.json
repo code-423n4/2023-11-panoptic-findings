@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "ro1sharkm",
+  "risk": "2",
+  "title": "Approval Check Missing in Token Transfers (Mint and Swap Callbacks)",
+  "issueId": 554,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/554"
+}
