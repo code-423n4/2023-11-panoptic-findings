@@ -58,18 +58,3 @@ User transaction can be unintentionally reverted.
 Checking condition should be changed to:
 
         if ((newTick > tickLimitHigh) || (newTick < tickLimitLow)) revert Errors.PriceBoundFail();
-
-
-
-# 3, User can not transfer part of balance, which is against documentation
-
-## Lines of code
-https://github.com/code-423n4/2023-11-panoptic/blob/main/contracts/SemiFungiblePositionManager.sol#L619
-
-## Details
-As discussion, sponor said that it is not necessary to have to transfer all balance [link](https://discord.com/channels/810916927919620096/1176549245935955998/1181428467661799565):
-![here](https://i.ibb.co/V92FLmN/Untitled.png)
-But in the code, current implement will revert if not all balance are transfered:
-
-    // Revert if not all balance is transferred
-It should be cleared about this mechanism in the document.
