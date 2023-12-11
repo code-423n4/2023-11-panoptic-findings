@@ -185,13 +185,13 @@ Clearly document to users about the specific conditions under which token transf
 
 ## **Summary:**
 
-The protocol has specific guidelines regarding the pools that are permissible for use. However, the **`initializeAMMPool`** function, responsible for setting up Uniswap V3 pools within the protocol, does not enforce these guidelines. Specifically, it allows the initialization of any valid Uniswap pool, even those explicitly disallowed by the protocol's documentation. on the pools that can be used on the protocol, specifically it disallows the following
+The protocol has specific guidelines regarding the pools that are permissible for use. However, the **`initializeAMMPool`** function, responsible for setting up Uniswap V3 pools within the protocol, does not enforce these guidelines. Specifically, it allows the initialization of any valid Uniswap pool, even those explicitly disallowed by the protocol's documentation.
 
 “**Very large quantities of tokens are not supported. It should be assumed that for any given pool, the cumulative amount of tokens that enter the system (associated with that pool, through adding liquidity, collection, etc.) will not exceed 2^127 - 1.”**
 
 “**Pools with a tick spacing of 1 are not currently supported. For the purposes of this audit, the only tick spacings that are supported are 10, 60, and 200”**
 
-According to the protocol's documentation, pools with an exceptionally large token quantity (exceeding 2^127 - 1) and those with a tick spacing of 1 are not supported. Despite this, the **`initializeAMMPool`** function lacks mechanisms to filter out these disallowed pools, which could potentially cause underflow/overflow issues or precision loss errors in the protocol. Moreover, these pools have not undergone thorough testing, potentially exposing users to unanticipated risks.
+According to the protocol's documentation, pools with an very large token quantity (exceeding 2^127 - 1) and those with a tick spacing of 1 are not supported. Despite this, the **`initializeAMMPool`** function lacks mechanisms to filter out these disallowed pools, which could potentially cause underflow/overflow issues or precision loss errors in the protocol. Moreover, these pools have not undergone thorough testing, potentially exposing users to unanticipated risks.
 
 ```
 function initializeAMMPool(address token0, address token1, uint24 fee) external {
@@ -214,7 +214,7 @@ function initializeAMMPool(address token0, address token1, uint24 fee) external 
     }
 ```
 
-The absence of these restrictions in the initialization function presents a risk, as users might inadvertently interact with unsupported pools, assuming them to be valid within the protocol.
+The absence of these restrictions in the initialization function presents a risk, as users might inadvertently interact with unsupported pools maliciously initialized, assuming them to be valid within the protocol.
 
 ## **Recommendation:**
 
