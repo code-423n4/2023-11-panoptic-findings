@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "SAAJ",
+  "risk": "2",
+  "title": "Casting integer types without checking for overflow",
+  "issueId": 545,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/545"
+}
