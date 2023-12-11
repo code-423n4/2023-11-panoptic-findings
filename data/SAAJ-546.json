@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "SAAJ",
+  "risk": "2",
+  "title": "Both uniswapV3MintCallback() function are open to re-entrancy attacks leading to draining of funds due to callback",
+  "issueId": 546,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/546"
+}
