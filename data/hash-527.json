@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "hash",
+  "risk": "2",
+  "title": "Token balances can be made to not correctly reflect the underlying position",
+  "issueId": 527,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/527"
+}
