@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "hash",
+  "risk": "3",
+  "title": "ERC777 token reentrancy allows to steal fees",
+  "issueId": 519,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/519"
+}
