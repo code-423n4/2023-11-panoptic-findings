@@ -1,0 +1,8 @@
+{
+  "contest": 309,
+  "handle": "fouzantanveer",
+  "risk": "3",
+  "title": " Use of `slot0` to get `sqrtPriceLimitX96` can lead to price manipulation.",
+  "issueId": 621,
+  "issueUrl": "https://github.com/code-423n4/2023-11-panoptic-findings/issues/621"
+}
